@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Background from '../components/background';
+import PresentationCard from '../components/PresentationCard';
+---
+
+<Layout title="Alejandro Soto">
+	<section class="relative w-full h-screen flex justify-center items-center">
+		<Background />
+		<PresentationCard client:visible />
+	</section>
+</Layout>
