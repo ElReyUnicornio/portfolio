@@ -12,12 +12,13 @@ export default function XpBar(props: XpBarProps) {
           <>
             {i === 1 && (
               <div
+                key={"bar_" + i}
                 className="absolute z-0 top-0 left-0 h-full bg-gradient-to-r from-[#21C679] to-[#0F7747]"
                 style={{ width: `${(props.value / props.max) * 100 + 1}%` }}
               />
             )}
             <div
-              key={i}
+              key={"bar_segment_" + i}
               className={`h-full w-full border-y first:rounded-l-full last:rounded-r-full first:border-l border-r border-[#486433] relative z-10`}
             />
           </>
