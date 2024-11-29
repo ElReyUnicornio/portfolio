@@ -154,7 +154,7 @@ export default function PresentationCard() {
               >
                 <img src={crown.src} alt="corona" />
               </a>
-              <XpBar value={1} max={3} legend="año exp" />
+              <XpBar value={2} max={3} legend="año exp" />
             </div>
           </div>
 

@@ -2,11 +2,54 @@
 import Layout from '../layouts/Layout.astro';
 import Background from '../components/background';
 import PresentationCard from '../components/PresentationCard';
+import ProjectsBento from '../components/ProjectsBento.astro';
+
+import dev from "../assets/dev.svg";
+import job from "../assets/job.svg";
+import rocket from "../assets/rocket.svg";
 ---
 
 <Layout title="Alejandro Soto">
-	<section class="relative w-full h-screen flex justify-center items-center">
+	<div class="w-1 h-[260svh] bg-gradient-to-b from-transparent via-white/75 to-transparent absolute z-40 top-[120svh] left-[7%]">
+		<div class="absolute -left-[0.5rem] flex items-center">
+			<div class="w-5 h-5 bg-[#97909F] rounded-full" />
+			<div class="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-[#968F9E] border-dashed scale-[1.7] ml-10">
+				<img src={dev.src} alt="proyectos" class="w-5" />
+			  </div>
+			  <h1 class="font-extrabold text-4xl ml-10 text-white/50">
+				Proyectos
+			  </h1>
+		</div>
+		<div class="absolute top-[100svh] -left-[0.5rem] flex items-center">
+			<div class="w-5 h-5 bg-[#97909F] rounded-full" />
+			<div class="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-[#968F9E] border-dashed scale-[1.7] ml-10">
+				<img src={job.src} alt="proyectos" class="w-5" />
+			  </div>
+			  <h1 class="font-extrabold text-4xl ml-10 text-white/50">
+				Experiencia
+			  </h1>
+		</div>
+		<div class="absolute top-[200svh] -left-[0.5rem] w-96 flex items-center">
+			<div class="w-5 h-5 bg-[#97909F] rounded-full" />
+			<div class="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-[#968F9E] border-dashed scale-[1.7] ml-10">
+				<img src={rocket.src} alt="proyectos" class="w-5" />
+			  </div>
+			  <h1 class="font-extrabold text-4xl ml-10 text-white/50">
+				Sobre mí
+			  </h1>
+		</div>
+	</div>
+	<section class="relative w-full h-screen flex justify-center items-center snap-start">
 		<Background />
 		<PresentationCard client:visible />
+	</section>
+	<section id="Proyectos" class="relative w-full h-screen flex justify-center items-center snap-start pt-24 bg-[#2C1F3D]">
+		<ProjectsBento />
+	</section>
+	<section id="Trabajos" class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]">
+		
+	</section>
+	<section id="Hobbies" class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]">
+		
 	</section>
 </Layout>

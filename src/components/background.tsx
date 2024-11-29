@@ -7,7 +7,7 @@ export default function Background() {
           className="border-l border-b border-gray-50/15 hover:bg-white/25 transition-all duration-100 filter ease-out"
         />
       ))}
-      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-transparent to-[#362052] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-transparent to-[#2C1F3D] pointer-events-none" />
     </div>
   );
 }
