@@ -1,26 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Background from '../components/background';
-import PresentationCard from '../components/PresentationCard';
-import ProjectsBento from '../components/ProjectsBento.astro';
-import Timeline from '../components/Timeline.astro';
-
-
+import Layout from "../layouts/Layout.astro";
+import Background from "../components/background";
+import PresentationCard from "../components/PresentationCard";
+import ProjectsBento from "../components/ProjectsBento.astro";
 ---
 
 <Layout title="Alejandro Soto">
-	<Timeline />
-	<section id="home" class="relative w-full h-screen flex justify-center items-center snap-start">
-		<Background />
-		<PresentationCard client:visible />
-	</section>
-	<section id="Proyectos" class="relative w-full h-screen flex justify-center items-center snap-start pt-24 bg-[#2C1F3D]">
-		<ProjectsBento />
-	</section>
-	<section id="Trabajos" class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]">
-		
-	</section>
-	<section id="Hobbies" class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]">
-		
-	</section>
+  <section
+    id="home"
+    class="relative w-full h-screen flex justify-center items-center snap-start"
+  >
+    <Background />
+    <PresentationCard client:visible />
+  </section>
+  <section
+    id="Proyectos"
+    class="relative w-full h-screen flex justify-center items-center snap-start pt-24 bg-[#2C1F3D]"
+  >
+    <ProjectsBento />
+  </section>
+  <section
+    id="Trabajos"
+    class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]"
+  >
+  </section>
+  <section
+    id="Hobbies"
+    class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]"
+  >
+  </section>
 </Layout>

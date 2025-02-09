@@ -1,41 +1,34 @@
-import dev from "../assets/dev.svg";
-import job from "../assets/job.svg";
-import rocket from "../assets/rocket.svg";
+import AboutIcon from "./aboutIcon";
+import DevIcon from "./devIcon";
+import JobIcon from "./jobIcon";
 
 export default function CardTimeline() {
   return (
     <ul className="h-full flex flex-col justify-center items-end mr-1 relative">
       <li className="relative m-1">
-        <svg className="w-2 h-2 absolute top-[calc(50%-4px)] left-full">
-          <circle fill="#ADA0CF" cx="50%" cy="50%" r="4px" />
-        </svg>
-        <a href="#Proyectos">
-          <div className="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-dashed border-[#ADA0CF] mr-5 hover:bg-white/25 hover:scale-125 transition-transform duration-100">
-            <img src={dev.src} alt="proyectos" className="w-5" />
+        <a href="#Proyectos" className="peer group">
+          <div className="w-8 h-8 m-2 flex justify-center items-center rounded border-2 border-card-accent mr-5 bg-card-bg hover:bg-white/25 hover:scale-125 group-hover:border-none group-hover:bg-gradient-to-b group-hover:from-gradient-vex-green group-hover:to-gradient-vex-purple transition-all duration-100">
+            <DevIcon className="w-5 text-card-accent group-hover:text-card-bg" />
           </div>
         </a>
+        <div className="absolute w-2 h-4 bg-card-accent top-1/2 -translate-y-1/2 left-full peer-hover:scale-y-150 peer-hover:bg-gradient-to-b peer-hover:from-gradient-vex-green peer-hover:to-gradient-vex-purple transition-all" />
       </li>
       <li className="relative m-1">
-        <svg className="w-2 h-2 absolute top-[calc(50%-4px)] left-full">
-          <circle fill="#ADA0CF" cx="50%" cy="50%" r="4px" />
-        </svg>
-        <a href="#Trabajos">
-          <div className="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-dashed border-[#ADA0CF] mr-5 hover:bg-white/25 hover:scale-125 transition-transform duration-100">
-            <img src={job.src} alt="Trabajos" className="w-5" />
+        <a href="#Trabajos" className="peer group">
+          <div className="w-8 h-8 m-2 flex justify-center items-center rounded border-2 border-card-accent mr-5 bg-card-bg hover:bg-white/25 hover:scale-125 group-hover:border-none group-hover:bg-gradient-to-b group-hover:from-gradient-vex-green group-hover:to-gradient-vex-purple transition-all duration-100">
+            <JobIcon className="w-5 text-card-accent group-hover:text-card-bg" />
           </div>
         </a>
+        <div className="absolute w-2 h-4 bg-card-accent top-1/2 -translate-y-1/2 left-full peer-hover:scale-y-150 peer-hover:bg-gradient-to-b peer-hover:from-gradient-vex-green peer-hover:to-gradient-vex-purple transition-all" />
       </li>
       <li className="relative m-1">
-        <svg className="w-2 h-2 absolute top-[calc(50%-4px)] left-full">
-          <circle fill="#ADA0CF" cx="50%" cy="50%" r="4px" />
-        </svg>
-        <a href="#Hobbies">
-          <div className="w-8 h-8 m-2 flex justify-center content-center rounded border-2 border-dashed border-[#ADA0CF] mr-5 hover:bg-white/25 hover:scale-125 transition-transform duration-100">
-            <img src={rocket.src} alt="Sobre mí" className="w-5" />
+        <a href="#Hobbies" className="peer group">
+          <div className="w-8 h-8 m-2 flex justify-center items-center rounded border-2 border-card-accent mr-5 bg-card-bg hover:bg-white/25 hover:scale-125 group-hover:border-none group-hover:bg-gradient-to-b group-hover:from-gradient-vex-green group-hover:to-gradient-vex-purple transition-all duration-100">
+            <AboutIcon className="w-5 text-card-accent group-hover:text-card-bg" />
           </div>
         </a>
+        <div className="absolute w-2 h-4 bg-card-accent top-1/2 -translate-y-1/2 left-full peer-hover:scale-y-150 peer-hover:bg-gradient-to-b peer-hover:from-gradient-vex-green peer-hover:to-gradient-vex-purple transition-all" />
       </li>
-      <div className="absolute h-[80%] w-[1px] bg-gradient-to-b from-transparent via-[#ADA0CF] to-transparent"></div>
     </ul>
   );
 }

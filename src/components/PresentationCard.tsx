@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Avatar from "./avatar";
-import XpBar from "./xpBar";
 
 import pp from "../assets/pp.jpeg";
-import crown from "../assets/ERUcrown.png";
 import tecnologies from "../assets/tecnologies.svg";
 import linkedin from "../assets/linkedin.svg";
 import Github from "./github";
 import Tooltip from "./tooltip";
 import CardTimeline from "./cardTimeline";
+import cardBG from "../assets/card-bg.svg";
+import CrownBookmark from "./crownBookmark";
 
 export default function PresentationCard() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -106,7 +106,7 @@ export default function PresentationCard() {
       circle at
       ${width - offsetX}px
       ${(offsetY - halfHeight) * 2 + halfHeight}px,
-      #ffffff55,
+      #ffffff30,
       #0000000f
     )
   `;
@@ -131,38 +131,32 @@ export default function PresentationCard() {
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="w-10/12 h-svh lg:max-w-4xl lg:h-[500px] perspective relative z-20"
+      className="w-10/12 h-4/6 md:max-w-4xl lg:h-[500px] perspective relative z-20"
     >
       <div
         ref={cardRef}
         className="w-full h-full rounded-[50px] shadow-inner-card bg-transparent  lg:max-w-4xl lg:h-[500px] p-5 transition-transform overflow-hidden"
       >
-        <div className="flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-gradient-to-br from-[#9000FF] to-[#270F93] w-full h-full rounded-[35px] p-8 overflow-hidden shadow shadow-gray-900">
+        <div className="relative flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-[35px] p-8 overflow-hidden shadow shadow-gray-900">
+          {/* CardBG ------------------------------------------------------------------------------ */}
+          <img src={cardBG.src} className="absolute -top-14 -right-24 h-full scale-[1.8] z-0" />
+
           {/* Avatar && XpBar ------------------------------------------------------------------------------ */}
 
-          <div className="flex flex-col lg:flex-row justify-between w-full">
+          <div className="flex flex-col lg:flex-row justify-between w-full relative z-10">
             <Avatar
               url={pp.src}
               name="Alejandro Soto"
               title="Desarrollador Fullstack"
             />
-            <div className="flex flex-col items-center">
-              <a
-                href="https://www.instagram.com/srreyunicornio/"
-                target="_blank"
-                className="hover:scale-125 hover:bg-glow transition-transform duration-100"
-              >
-                <img src={crown.src} alt="corona" />
-              </a>
-              <XpBar value={2} max={3} legend="año exp" />
-            </div>
+            <CrownBookmark />
           </div>
 
           {/* Tecnologies && sections ------------------------------------------------------------------------------ */}
 
-          <div className="flex justify-between">
+          <div className="w-full flex justify-between items-center grow relative z-10">
             <img
-              className="relative w-10/12 left-4 top-4 scale-[2] lg:scale-[1.4] lg:left-2 lg:-top-0"
+              className="relative h-28 left-4 top-4 lg:left-2 lg:-top-0"
               src={tecnologies.src}
               alt="react, tailwind, nest, typeScript"
             />
@@ -173,11 +167,11 @@ export default function PresentationCard() {
 
           {/* Contact ------------------------------------------------------------------------------ */}
 
-          <div className="relative flex justify-between w-full items-end">
-            <div className="ml-8">
+          <div className="relative flex justify-between w-full items-end z-10">
+            <div>
               <h1 className="font-bold text-base text-white">contacto:</h1>
               <p
-                className="text-sm text-white font-bold py-1 px-8 bg-white/25 rounded-full cursor-pointer"
+                className="text-sm text-white font-bold py-1 rounded-full cursor-pointer"
                 onClick={copyToClipboard}
               >
                 contacto@alejandrosoto.site
@@ -200,7 +194,7 @@ export default function PresentationCard() {
                 target="_blank"
                 className="hover:scale-125 transition-transform duration-100"
               >
-                <Github className="w-10 h-10" fill="#AE84E4" />
+                <Github className="w-10 h-10" fill="#908E92" />
               </a>
             </div>
           </div>
@@ -210,7 +204,7 @@ export default function PresentationCard() {
 
         <div
           ref={glowRef}
-          className="absolute top-0 left-0 w-full h-full pointer-events-none glow"
+          className="absolute top-0 left-0 z-20 w-full h-full pointer-events-none glow"
         />
       </div>
       <Tooltip ref={tooltipRef} hidden={tooltipHidden} type="success">

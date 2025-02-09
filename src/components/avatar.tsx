@@ -22,9 +22,11 @@ export default function Avatar(props: AvatarProps) {
         <h1 className="text-white font-extrabold text-xl lg:text-3xl">
           {props.name}
         </h1>
-        <h2 className="text-white/75 text-xs lg:text-base w-full text-center py-1 bg-white/25 rounded-md">
-          {props.title}
-        </h2>
+        <div className="bg-gradient-to-tr from-gradient-vex-purple to-gradient-vex-green p-[2px] rounded-md">
+          <h2 className="text-white/75 text-xs lg:text-base w-full text-center py-1 rounded-md bg-card-bg">
+            {props.title}
+          </h2>
+        </div>
       </div>
     </div>
   );

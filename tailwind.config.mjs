@@ -4,6 +4,14 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        "card-bg": "#221D26",
+        "card-accent": "#908E92",
+        "bg": "#18131C",
+        "gradient-vex-green": "#18E98E",
+        "gradient-vex-purple": "#550F9F",
+
+      },
       boxShadow: {
         "inner-card": "inset 0 0 15px 11px rgba(121, 173, 149, 0.26)",
       },
@@ -62,7 +70,7 @@ export default {
       addUtilities({
         ".glow": {
           BackgroundImage:
-            "radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);",
+            "radial-gradient(circle at 50% -20%, #ffffff00, #00000000);",
         },
       });
       addUtilities({
