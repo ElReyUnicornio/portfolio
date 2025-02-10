@@ -10,10 +10,10 @@ export default {
         "bg": "#18131C",
         "gradient-vex-green": "#18E98E",
         "gradient-vex-purple": "#550F9F",
-
+        "section-bg": "#18131C"
       },
       boxShadow: {
-        "inner-card": "inset 0 0 15px 11px rgba(121, 173, 149, 0.26)",
+        "inner-card": "inset 0 0 15px 11px rgba(121, 173, 149, 0.16)",
       },
       fontFamily: {
         raleway: ["Raleway Variable", "sans-serif"],

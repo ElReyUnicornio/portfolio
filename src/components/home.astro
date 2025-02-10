@@ -1,0 +1,12 @@
+---
+import Background from "./atoms/background.astro";
+import PresentationCard from "./atoms/PresentationCard";
+---
+
+<section
+  id="home"
+  class="relative z-0 w-full h-screen flex justify-center items-center snap-start pb-36"
+>
+  <Background />
+  <PresentationCard client:visible />
+</section>

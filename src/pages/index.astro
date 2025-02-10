@@ -1,32 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Background from "../components/background";
-import PresentationCard from "../components/PresentationCard";
-import ProjectsBento from "../components/ProjectsBento.astro";
+import Home from "../components/home.astro";
+import Projects from "../components/projects.astro";
+import Jobs from "../components/jobs.astro";
+import Hobbies from "../components/hobbies.astro";
+import Nav from "../components/atoms/nav.astro";
 ---
 
 <Layout title="Alejandro Soto">
-  <section
-    id="home"
-    class="relative w-full h-screen flex justify-center items-center snap-start"
-  >
-    <Background />
-    <PresentationCard client:visible />
-  </section>
-  <section
-    id="Proyectos"
-    class="relative w-full h-screen flex justify-center items-center snap-start pt-24 bg-[#2C1F3D]"
-  >
-    <ProjectsBento />
-  </section>
-  <section
-    id="Trabajos"
-    class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]"
-  >
-  </section>
-  <section
-    id="Hobbies"
-    class="relative w-full h-screen flex justify-center items-center snap-start bg-[#2C1F3D]"
-  >
-  </section>
+  <Nav />
+  <Home />
+  <Projects />
+  <Jobs />
+  <Hobbies />
 </Layout>

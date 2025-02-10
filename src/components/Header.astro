@@ -1,84 +1,11 @@
 <header
-  class="fixed z-50 top-0 w-full h-24 border-b border-gray-500 bg-blend backdrop-blur bg-white/5 px-[7%] flex justify-between items-center shadow-md"
+  class="absolute z-50 top-0 w-full h-24 bg-section-bg px-[7%] flex justify-between items-center shadow-md"
 >
   <a href="#home" class="text-white font-extrabold text-xl md:text-4xl">
-    AlejandroSoto<span class="text-red-500">.</span>site
+    AlejandroSoto<span class="text-gradient-vex-green">.</span>site
   </a>
-  <div class="hidden md:flex">
-    <a href="#Proyectos" class="text-white font-extrabold text-2xl ml-4">
-      Proyectos
-    </a>
-    <a href="#Trabajos" class="text-white font-extrabold text-2xl ml-4">
-      Experiencia
-    </a>
-    <a href="#Hobbies" class="text-white font-extrabold text-2xl ml-4">
-      Sobre mí
-    </a>
-  </div>
-  <div class="md:hidden">
-    <button
-      id="menu"
-      class="text-white
-        font-extrabold
-        text-2xl
-        ml-4
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        p-2
-        rounded-md
-        bg-white/5
-        hover:bg-white/10
-        transition-colors
-        duration-200"
-    >
-      <svg
-        class="w-8 h-8"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
+  <div
+    class="absolute bottom-0 w-full left-1/2 -translate-x-1/2 h-1 bg-gradient-to-r from-gradient-vex-green to-gradient-vex-purple"
+  >
   </div>
 </header>
-<div
-  id="drawer"
-  class="fixed top-0 left-0 w-full h-0 bg-black/50 z-40 backdrop-blur-sm transition-all overflow-hidden"
->
-  <div class="flex flex-col justify-center items-center h-full">
-    <a href="#home" class="text-white font-extrabold text-3xl mt-5"> Inicio </a>
-    <a href="#Proyectos" class="text-white font-extrabold text-3xl mt-5">
-      Proyectos
-    </a>
-    <a href="#Trabajos" class="text-white font-extrabold text-3xl mt-5">
-      Experiencia
-    </a>
-    <a href="#Hobbies" class="text-white font-extrabold text-3xl mt-5">
-      Sobre mí
-    </a>
-  </div>
-</div>
-<script>
-  const menu = document.getElementById("menu");
-  const drawer = document.getElementById("drawer");
-  if (menu && drawer) {
-    menu.addEventListener("click", () => {
-      if (drawer.style.height === "0px" || drawer.style.height === "") {
-        drawer.style.height = "100vh";
-      } else {
-        drawer.style.height = "0";
-      }
-    });
-    drawer.addEventListener("click", () => {
-      drawer.style.height = "0";
-    });
-  }
-</script>

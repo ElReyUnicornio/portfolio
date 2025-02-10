@@ -1,0 +1,157 @@
+<nav class="fixed right-10 top-1/2 -translate-y-1/2 z-50 w-3">
+  <ul class="flex flex-col gap-8">
+    <!-- Section -->
+    <a id="nav-home" href="#home" class="group relative px-4 py-2">
+      <li class="block w-2 h-5 bg-gradient-vex-green group-hover:scale-y-150">
+      </li>
+      <div
+        class="h-full absolute left-0 top-0 -translate-x-full mr-2 overflow-hidden flex justify-center items-center"
+      >
+        <span
+          class="text-xl text-nowrap text-gradient-vex-green font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
+          >Inicio</span
+        >
+      </div>
+    </a>
+    <!-- Section -->
+    <a id="nav-proyectos" href="#Proyectos" class="group relative px-4 py-2">
+      <li class="block w-2 h-5 bg-card-accent group-hover:scale-y-150"></li>
+      <div
+        class="h-full absolute left-0 top-0 -translate-x-full mr-2 overflow-hidden flex justify-center items-center"
+      >
+        <span
+          class="text-xl text-nowrap text-blue-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
+          >Proyectos</span
+        >
+      </div>
+    </a>
+    <!-- Section -->
+    <a id="nav-trabajos" href="#Trabajos" class="group relative px-4 py-2">
+      <li class="block w-2 h-5 bg-card-accent group-hover:scale-y-150"></li>
+      <div
+        class="h-full absolute left-0 top-0 -translate-x-full mr-2 overflow-hidden flex justify-center items-center"
+      >
+        <span
+          class="text-xl text-nowrap text-pink-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
+          >Experiencia</span
+        >
+      </div>
+    </a>
+    <!-- Section -->
+    <a id="nav-hobbies" href="#Hobbies" class="group relative px-4 py-2">
+      <li class="block w-2 h-5 bg-card-accent group-hover:scale-y-150"></li>
+      <div
+        class="h-full absolute left-0 top-0 -translate-x-full mr-2 overflow-hidden flex justify-center items-center"
+      >
+        <span
+          class="text-xl text-nowrap text-purple-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
+          >Sobre mí</span
+        >
+      </div>
+    </a>
+  </ul>
+</nav>
+
+<script>
+  const home = document.getElementById("home");
+  const projects = document.getElementById("Proyectos");
+  const jobs = document.getElementById("Trabajos");
+  const hobbies = document.getElementById("Hobbies");
+
+  const navHome = document.getElementById("nav-home");
+  const navProjects = document.getElementById("nav-proyectos");
+  const navJobs = document.getElementById("nav-trabajos");
+  const navHobbies = document.getElementById("nav-hobbies");
+
+  const homeColor = "#18e98e";
+  const projectsColor = "#3b82f6";
+  const jobsColor = "#ec4899";
+  const hobbiesColor = "#a855f7";
+  const disabledColor = "#908e92";
+
+  const updateNav = () => {
+    if (!home || !projects || !jobs || !hobbies) return;
+    if (!navHome || !navProjects || !navJobs || !navHobbies) return;
+
+    if (
+      window.scrollY >= home.offsetTop &&
+      window.scrollY < projects.offsetTop
+    ) {
+      (navHome.firstElementChild as HTMLElement).style.backgroundColor =
+        homeColor;
+      (navProjects.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navJobs.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+    } else if (
+      window.scrollY >= projects.offsetTop &&
+      window.scrollY < jobs.offsetTop
+    ) {
+      (navHome.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navProjects.firstElementChild as HTMLElement).style.backgroundColor =
+        projectsColor;
+      (navJobs.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+    } else if (
+      window.scrollY >= jobs.offsetTop &&
+      window.scrollY < hobbies.offsetTop
+    ) {
+      (navHome.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navProjects.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navJobs.firstElementChild as HTMLElement).style.backgroundColor =
+        jobsColor;
+      (navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+    } else if (window.scrollY >= hobbies.offsetTop) {
+      (navHome.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navProjects.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navJobs.firstElementChild as HTMLElement).style.backgroundColor =
+        disabledColor;
+      (navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
+        hobbiesColor;
+    }
+  };
+
+  document.addEventListener("scroll", updateNav);
+
+  navHome?.addEventListener(
+    "mouseover",
+    () =>
+      ((navHome.firstElementChild as HTMLElement).style.backgroundColor =
+        homeColor)
+  );
+  navHome?.addEventListener("mouseleave", updateNav);
+
+  navProjects?.addEventListener(
+    "mouseover",
+    () =>
+      ((navProjects.firstElementChild as HTMLElement).style.backgroundColor =
+        projectsColor)
+  );
+  navProjects?.addEventListener("mouseleave", updateNav);
+
+  navJobs?.addEventListener(
+    "mouseover",
+    () =>
+      ((navJobs.firstElementChild as HTMLElement).style.backgroundColor =
+        jobsColor)
+  );
+  navJobs?.addEventListener("mouseleave", updateNav);
+
+  navHobbies?.addEventListener(
+    "mouseover",
+    () =>
+      ((navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
+        hobbiesColor)
+  );
+  navHobbies?.addEventListener("mouseleave", updateNav);
+</script>

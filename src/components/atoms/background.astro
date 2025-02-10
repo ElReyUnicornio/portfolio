@@ -1,0 +1,28 @@
+---
+import bottom from "../../assets/section-bottom.svg";
+import Chevron from "../icons/chevron.astro";
+---
+
+<div
+  class="absolute top-0 left-0 z-10 w-full h-screen grid grid-cols-[repeat(30,minmax(0,1fr))] lg:grid-cols-[repeat(45,minmax(0,1fr))]"
+>
+  {
+    Array.from({ length: 30 ** 2 }).map((_, i) => (
+      <div class="border-l border-b border-gray-50/15 hover:bg-white/25 transition-all duration-100 filter ease-out" />
+    ))
+  }
+  <div
+    class="absolute bottom-0 left-0 aspect-[202/26] w-full flex flex-col justify-end items-center"
+  >
+    <img src={bottom.src} class="absolute w-full bottom-0 z-0" />
+    <p class="text-3xl text-white relative z-10 font-extrabold">
+      El límite lo pone tu <span
+        class="bg-gradient-to-b from-[#B52BF4] to-[#12A38B] bg-clip-text text-transparent"
+        >imaginación</span
+      >
+    </p>
+    <a href="#Proyectos" class="py-5">
+      <Chevron className="w-12 h-12 text-white animate-bounce" />
+    </a>
+  </div>
+</div>

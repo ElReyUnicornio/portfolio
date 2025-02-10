@@ -1,6 +1,6 @@
-import AboutIcon from "./aboutIcon";
-import DevIcon from "./devIcon";
-import JobIcon from "./jobIcon";
+import AboutIcon from "../icons/aboutIcon";
+import DevIcon from "../icons/devIcon";
+import JobIcon from "../icons/jobIcon";
 
 export default function CardTimeline() {
   return (

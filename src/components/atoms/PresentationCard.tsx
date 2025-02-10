@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
-import Avatar from "./avatar";
+import Avatar from "../atoms-card/avatar";
 
-import pp from "../assets/pp.jpeg";
-import tecnologies from "../assets/tecnologies.svg";
-import linkedin from "../assets/linkedin.svg";
-import Github from "./github";
+import pp from "../../assets/pp.jpeg";
+import tecnologies from "../../assets/tecnologies.svg";
+import linkedin from "../../assets/linkedin.svg";
+import Github from "../icons/github";
 import Tooltip from "./tooltip";
-import CardTimeline from "./cardTimeline";
-import cardBG from "../assets/card-bg.svg";
-import CrownBookmark from "./crownBookmark";
+import CardTimeline from "../atoms-card/cardTimeline";
+import cardBG from "../../assets/card-bg.svg";
+import CrownBookmark from "../atoms-card/crownBookmark";
 
 export default function PresentationCard() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -135,11 +135,14 @@ export default function PresentationCard() {
     >
       <div
         ref={cardRef}
-        className="w-full h-full rounded-[50px] shadow-inner-card bg-transparent  lg:max-w-4xl lg:h-[500px] p-5 transition-transform overflow-hidden"
+        className="w-full h-full rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm lg:max-w-4xl lg:h-[500px] p-5 transition-transform overflow-hidden"
       >
         <div className="relative flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-[35px] p-8 overflow-hidden shadow shadow-gray-900">
           {/* CardBG ------------------------------------------------------------------------------ */}
-          <img src={cardBG.src} className="absolute -top-14 -right-24 h-full scale-[1.8] z-0" />
+          <img
+            src={cardBG.src}
+            className="absolute -top-14 -right-24 h-full scale-[1.8] z-0"
+          />
 
           {/* Avatar && XpBar ------------------------------------------------------------------------------ */}
 
@@ -204,7 +207,7 @@ export default function PresentationCard() {
 
         <div
           ref={glowRef}
-          className="absolute top-0 left-0 z-20 w-full h-full pointer-events-none glow"
+          className="absolute top-0 left-0 z-50 w-full h-full pointer-events-none glow"
         />
       </div>
       <Tooltip ref={tooltipRef} hidden={tooltipHidden} type="success">
