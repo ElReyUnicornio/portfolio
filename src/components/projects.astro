@@ -1,5 +1,28 @@
+---
+import Banner from "./atoms/banner.astro";
+import LeftSection from "./atoms/left-section.astro";
+import { projects } from "../projects";
+import Carousel from "./atoms/carousel";
+
+const i = 1;
+---
+
 <section
   id="Proyectos"
-  class="relative z-0 w-full h-screen flex justify-center items-center snap-start pt-24 bg-[#2C1F3D]"
+  class="relative z-0 w-full h-screen flex flex-col justify-end items-center snap-center bg-[#2C1F3D]"
 >
+  <div class="flex flex-row-reverse h-container w-full relative">
+    <div class="h-full w-[calc(100vw-((100vh-9rem)*0.63))] relative">
+      <Carousel section="projects" client:visible />
+      <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/10"></div>
+    </div>
+    <LeftSection
+      category={projects[i].category}
+      title={projects[i].name}
+      description={projects[i].description}
+      from={projects[i].startColor}
+      to={projects[i].endColor}
+    />
+  </div>
+  <Banner title="Proyectos" section="projects" />
 </section>

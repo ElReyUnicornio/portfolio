@@ -18,26 +18,14 @@ export default function PresentationCard() {
 
   //tooltip controls
   useEffect(() => {
-    const setTooltipPosition = (e: globalThis.MouseEvent) => {
-      if (tooltipRef.current && cardRef.current) {
-        tooltipRef.current.style.top =
-          e.clientY - cardRef.current.getBoundingClientRect().y - 66 + "px";
-        tooltipRef.current.style.left =
-          e.clientX - cardRef.current.getBoundingClientRect().x - 44 + "px";
-      }
-    };
-    window.addEventListener("mousemove", setTooltipPosition);
-    window.addEventListener("click", setTooltipPosition);
-
     if (tooltipHidden) return;
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setTooltipHidden(true);
     }, 1000);
 
     return () => {
-      window.removeEventListener("mousemove", setTooltipPosition);
-      window.removeEventListener("click", setTooltipPosition);
+      clearTimeout(timer);
     };
   }, [tooltipHidden]);
 
@@ -137,11 +125,11 @@ export default function PresentationCard() {
         ref={cardRef}
         className="w-full h-full rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm lg:max-w-4xl lg:h-[500px] p-5 transition-transform overflow-hidden"
       >
-        <div className="relative flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-[35px] p-8 overflow-hidden shadow shadow-gray-900">
+        <div className="relative flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-[35px] p-8 shadow shadow-gray-900">
           {/* CardBG ------------------------------------------------------------------------------ */}
           <img
             src={cardBG.src}
-            className="absolute -top-14 -right-24 h-full scale-[1.8] z-0"
+            className="absolute -top-14 -right-14 h-full scale-[1.8] z-0"
           />
 
           {/* Avatar && XpBar ------------------------------------------------------------------------------ */}
@@ -163,6 +151,20 @@ export default function PresentationCard() {
               src={tecnologies.src}
               alt="react, tailwind, nest, typeScript"
             />
+            <div className="absolute top-1/2 left-2 -translate-y-1/2 flex gap-[16px] h-28">
+              <div className="w-28 h-full group relative">
+                <Tooltip>React</Tooltip>
+              </div>
+              <div className="w-28 h-full group relative">
+                <Tooltip>Tailwind</Tooltip>
+              </div>
+              <div className="w-28 h-full group relative">
+                <Tooltip>Nest.JS</Tooltip>
+              </div>
+              <div className="w-28 h-full group relative">
+                <Tooltip>TypeScript</Tooltip>
+              </div>
+            </div>
             <div className="w-20 h-full grow">
               <CardTimeline />
             </div>
@@ -173,12 +175,21 @@ export default function PresentationCard() {
           <div className="relative flex justify-between w-full items-end z-10">
             <div>
               <h1 className="font-bold text-base text-white">contacto:</h1>
-              <p
-                className="text-sm text-white font-bold py-1 rounded-full cursor-pointer"
-                onClick={copyToClipboard}
-              >
-                contacto@alejandrosoto.site
-              </p>
+              <div className="relative">
+                <p
+                  className="text-sm text-white font-bold py-1 rounded-full cursor-pointer"
+                  onClick={copyToClipboard}
+                >
+                  contacto@alejandrosoto.site
+                </p>
+                <Tooltip
+                  ref={tooltipRef}
+                  hidden={tooltipHidden}
+                  showOnHover={false}
+                >
+                  ¡Copiado!
+                </Tooltip>
+              </div>
             </div>
             <div className="flex">
               <a
@@ -210,9 +221,6 @@ export default function PresentationCard() {
           className="absolute top-0 left-0 z-50 w-full h-full pointer-events-none glow"
         />
       </div>
-      <Tooltip ref={tooltipRef} hidden={tooltipHidden} type="success">
-        ¡Copiado!
-      </Tooltip>
     </div>
   );
 }

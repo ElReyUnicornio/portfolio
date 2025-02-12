@@ -1,5 +1,5 @@
 // Supports weights 100-900
-import "@fontsource-variable/raleway";
+import "@fontsource-variable/work-sans";
 
 interface AvatarProps {
   url?: string;
@@ -18,7 +18,7 @@ export default function Avatar(props: AvatarProps) {
           alt={props.name + ", " + props.title}
         ></img>
       </div>
-      <div className="font-raleway">
+      <div className="font-work">
         <h1 className="text-white font-extrabold text-xl lg:text-3xl">
           {props.name}
         </h1>

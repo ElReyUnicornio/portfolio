@@ -1,0 +1,84 @@
+---
+import SectionLeft from "./section-left.astro";
+import CategoryIcon from "./categoryIcon";
+---
+
+<div
+  class="absolute top-0 left-0 h-full aspect-[841/867] z-20 flex flex-col pt-48 pl-20"
+>
+  <div class="absolute w-full h-full top-0 left-0 z-0">
+    <SectionLeft />
+  </div>
+  <div class="flex flex-col justify-center relative z-10">
+    <div class="flex flex-row items-center overflow-hidden mb-10">
+      <div
+        id="category-icon"
+        class="p-2 rounded-sm min-h-14 min-w-14 mr-6 animate-slide-down"
+      >
+        <CategoryIcon client:visible />
+      </div>
+      <h1
+        id="project-category"
+        class="font-extrabold text-7xl bg-clip-text text-transparent animate-slide-down"
+      >
+        ----------------------
+      </h1>
+    </div>
+    <div class="overflow-hidden mb-4">
+      <h2
+        id="project-title"
+        class="text-3xl font-extrabold text-white animate-slide-down"
+      >
+        ------------------
+      </h2>
+    </div>
+    <div class="overflow-hidden">
+      <p
+        id="project-description"
+        class="text-3xl text-white w-8/12 animate-slide-down text-balance"
+      >
+        -------------------------
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { filteredProjects, projectsIndex } from "../../store";
+
+  const categoryIcon = document.getElementById("category-icon");
+  const category = document.getElementById("project-category");
+  const title = document.getElementById("project-title");
+  const description = document.getElementById("project-description");
+
+  function updateData(project: any) {
+    if (!categoryIcon || !category || !title || !description) return;
+    refreshAnimation(categoryIcon);
+    refreshAnimation(category);
+    refreshAnimation(title);
+    refreshAnimation(description);
+
+    categoryIcon.style.backgroundImage = `linear-gradient(${project.startColor}, ${project.endColor})`;
+    category.style.backgroundImage = `linear-gradient(${project.startColor}, ${project.endColor})`;
+    category.textContent = project.category.toUpperCase();
+    title.textContent = project.name;
+    description.textContent = project.description;
+  }
+
+  function refreshAnimation(element: HTMLElement) {
+    element.classList.remove("animate-slide-down");
+    setTimeout(() => {
+      element.classList.add("animate-slide-down");
+    }, 1);
+  }
+
+  filteredProjects.subscribe((projects: any) => {
+    const project = projects[projectsIndex.get()];
+    updateData(project);
+  });
+
+  projectsIndex.subscribe((index: any) => {
+    const project = filteredProjects.get()[index];
+    updateData(project);
+  });
+</script>

@@ -1,0 +1,81 @@
+---
+import Chevron from "../icons/chevron.astro";
+import AutoIcon from "./autoIcon";
+import BannerIcons from "./bannerIcons";
+
+interface Props {
+  title: string;
+  section: string;
+}
+
+const { title, section }: Props = Astro.props;
+---
+
+<div
+  id="banner"
+  class="h-36 w-full py-5 relative flex justify-between items-center px-20"
+>
+  <!-- Marquee ---------------------------------------------------------------------- -->
+  <div class="w-full h-full overflow-hidden absolute top-0 left-0 z-0">
+    <div
+      class="min-w-full pointer-events-none h-full flex gap-20 items-center absolute animate-marquee top-0 left-0 text-9xl text-white/20 font-extrabold whitespace-nowrap z-0"
+    >
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+    </div>
+    <div
+      class="min-w-full pointer-events-none h-full ml-20 flex gap-20 items-center absolute animate-marquee2 top-0 left-0 text-9xl text-white/20 font-extrabold whitespace-nowrap z-0"
+    >
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+      <span>{title.toUpperCase()}</span>
+    </div>
+  </div>
+  <!-- Technologies ----------------------------------------------------------------- -->
+  <div
+    class="flex justify-center items-center h-24 gap-3 bg-bg border-border rounded-ss-xl rounded-ee-xl border-8 -skew-x-[25deg] px-5 pl-6 relative z-10"
+  >
+    <BannerIcons section={section} client:visible />
+  </div>
+  <a
+    id="baner-link"
+    href="#"
+    target="_blank"
+    class="h-20 flex justify-between items-center bg-bg border-8 border-border rounded-full relative z-10 group"
+  >
+    <span class="font-bold text-4xl mx-10 text-border group-hover:opacity-75">
+      VISITAR
+    </span>
+    <div
+      class="h-12 w-12 mr-2 rounded-full bg-border flex items-center justify-center group-hover:opacity-75"
+    >
+      <Chevron rotation={-90} className="w-10 h-10 text-bg" />
+    </div>
+  </a>
+</div>
+
+<script>
+  import { filteredProjects, projectsIndex } from "../../store";
+
+  const banner = document.getElementById("banner");
+  const bannerLink = document.getElementById("baner-link");
+
+  function updateData(project: any) {
+    if (!banner || !bannerLink) return;
+    banner.style.background = `linear-gradient(90deg, ${project.startColor}, ${project.endColor})`;
+    (bannerLink as HTMLAnchorElement).href = project.demo;
+  }
+
+  filteredProjects.subscribe((projects: any) => {
+    updateData(projects[projectsIndex.get()]);
+  });
+
+  projectsIndex.subscribe((index: any) => {
+    updateData(filteredProjects.get()[index]);
+  });
+</script>
