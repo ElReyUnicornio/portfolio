@@ -1,4 +1,3 @@
-import DevIcon from "../icons/devIcon";
 import { useStore } from "@nanostores/react";
 import { filteredProjects, projectsIndex } from "../../store";
 import { useEffect, useState } from "react";

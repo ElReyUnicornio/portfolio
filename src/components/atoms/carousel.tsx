@@ -1,36 +1,53 @@
 import { useStore } from "@nanostores/react";
-import { filteredProjects, projectsIndex, jobsIndex } from "../../store";
+import {
+  filteredProjects,
+  projectsIndex,
+  jobsIndex,
+  projectsTimer,
+  jobsTimer,
+  filteredJobs,
+  cooldown,
+  next,
+} from "../../store";
 import { useEffect, useRef } from "react";
 
 export default function Carousel({ section }: { section: string }) {
-  const items = useStore(filteredProjects);
+  const items = useStore(
+    section === "projects" ? filteredProjects : filteredJobs
+  );
   const index = useStore(section === "projects" ? projectsIndex : jobsIndex);
+  const timer = useStore(section === "projects" ? projectsTimer : jobsTimer);
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!carouselRef.current) return;
+    if (!carouselRef.current || (section != "projects" && section != "jobs"))
+      return;
 
-    const next = () => {
+    const updateTimer = () => {
       if (section === "projects") {
-        projectsIndex.set((projectsIndex.get() + 1) % items.length);
+        projectsTimer.set(projectsTimer.get() + 1);
       }
       if (section === "jobs") {
-        jobsIndex.set((jobsIndex.get() + 1) % items.length);
+        jobsTimer.set(jobsTimer.get() + 1);
       }
     };
 
-    let interval = setInterval(next, 5000);
+    let interval = setInterval(updateTimer, 1000);
 
     carouselRef.current.addEventListener("mouseenter", () => {
       clearInterval(interval);
     });
 
     carouselRef.current.addEventListener("mouseleave", () => {
-      interval = setInterval(next, 5000);
+      interval = setInterval(updateTimer, 1000);
     });
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (timer >= cooldown) next(section);
+  }, [timer]);
 
   useEffect(() => {
     if (!carouselRef.current) return;

@@ -19,8 +19,8 @@ export default function ViteIcon() {
             y2="78.411%"
             id="a"
           >
-            <stop stop-color="#41D1FF" offset="0%"></stop>
-            <stop stop-color="#BD34FE" offset="100%"></stop>
+            <stop stopColor="#41D1FF" offset="0%"></stop>
+            <stop stopColor="#BD34FE" offset="100%"></stop>
           </linearGradient>
           <linearGradient
             x1="43.376%"
@@ -29,9 +29,9 @@ export default function ViteIcon() {
             y2="89.03%"
             id="b"
           >
-            <stop stop-color="#FFEA83" offset="0%"></stop>
-            <stop stop-color="#FFDD35" offset="8.333%"></stop>
-            <stop stop-color="#FFA800" offset="100%"></stop>
+            <stop stopColor="#FFEA83" offset="0%"></stop>
+            <stop stopColor="#FFDD35" offset="8.333%"></stop>
+            <stop stopColor="#FFA800" offset="100%"></stop>
           </linearGradient>
         </defs>
         <path

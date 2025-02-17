@@ -19,8 +19,8 @@ export default function Tailwindicon() {
             y2="67.556%"
             id="gradient"
           >
-            <stop stop-color="#2298BD" offset="0%"></stop>
-            <stop stop-color="#0ED7B5" offset="100%"></stop>
+            <stop stopColor="#2298BD" offset="0%"></stop>
+            <stop stopColor="#0ED7B5" offset="100%"></stop>
           </linearGradient>
         </defs>
         <path

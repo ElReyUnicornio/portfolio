@@ -1,6 +1,7 @@
 ---
 import SectionLeft from "./section-left.astro";
 import CategoryIcon from "./categoryIcon";
+import CarouselController from "./carouselController";
 ---
 
 <div
@@ -40,6 +41,9 @@ import CategoryIcon from "./categoryIcon";
         -------------------------
       </p>
     </div>
+  </div>
+  <div class="flex grow items-end w-7/12 pb-12">
+    <CarouselController forSection="projects" client:visible />
   </div>
 </div>
 
