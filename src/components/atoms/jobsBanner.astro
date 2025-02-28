@@ -12,7 +12,7 @@ const { title, section }: Props = Astro.props;
 ---
 
 <div
-  id="p-banner"
+  id="j-banner"
   class="h-36 w-full py-5 relative flex justify-between items-center px-20 z-10"
 >
   <!-- Marquee ---------------------------------------------------------------------- -->
@@ -43,7 +43,7 @@ const { title, section }: Props = Astro.props;
     <BannerIcons section={section} client:visible />
   </div>
   <a
-    id="p-baner-link"
+    id="j-baner-link"
     href="#"
     target="_blank"
     class="h-20 flex justify-between items-center bg-bg border-8 border-border rounded-full relative z-10 group"
@@ -60,10 +60,10 @@ const { title, section }: Props = Astro.props;
 </div>
 
 <script>
-  import { filteredProjects, projectsIndex } from "../../store";
+  import { filteredJobs, jobsIndex } from "../../store";
 
-  const banner = document.getElementById("p-banner");
-  const bannerLink = document.getElementById("p-baner-link");
+  const banner = document.getElementById("j-banner");
+  const bannerLink = document.getElementById("j-baner-link");
 
   function updateData(project: any) {
     if (!banner || !bannerLink) return;
@@ -71,11 +71,11 @@ const { title, section }: Props = Astro.props;
     (bannerLink as HTMLAnchorElement).href = project.demo;
   }
 
-  filteredProjects.subscribe((projects: any) => {
-    updateData(projects[projectsIndex.get()]);
+  filteredJobs.subscribe((Jobs: any) => {
+    updateData(Jobs[jobsIndex.get()]);
   });
 
-  projectsIndex.subscribe((index: any) => {
-    updateData(filteredProjects.get()[index]);
+  jobsIndex.subscribe((index: any) => {
+    updateData(filteredJobs.get()[index]);
   });
 </script>

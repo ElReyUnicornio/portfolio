@@ -10,6 +10,7 @@ import {
   next,
 } from "../../store";
 import { useEffect, useRef } from "react";
+import type { Job } from "../../jobs";
 
 export default function Carousel({ section }: { section: string }) {
   const items = useStore(
@@ -63,7 +64,11 @@ export default function Carousel({ section }: { section: string }) {
         {items.map((item, i) => (
           <img
             key={item.name + "_carousel_image_" + i}
-            src={item.image.src}
+            src={
+              section === "jobs-bg"
+                ? (item as Job).background.src
+                : item.image.src
+            }
             alt={item.name}
             className="w-full h-full absolute top-0 left-0 object-cover"
             style={{ transform: `translateX(${i * 100}%)` }}

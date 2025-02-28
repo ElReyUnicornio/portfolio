@@ -16,6 +16,7 @@ export default function CrownBookmark() {
       <Bookmark
         from="#18E98E"
         to="#550F9F"
+        id="crown"
         className="absolute -z-10 -top-10 left-1/2 -translate-x-1/2"
       />
     </div>

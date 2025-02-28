@@ -1,6 +1,7 @@
 interface BookmarkProps extends React.SVGProps<SVGSVGElement> {
   from: string;
   to: string;
+  id: string;
 }
 
 export default function Bookmark(props: BookmarkProps) {
@@ -15,11 +16,11 @@ export default function Bookmark(props: BookmarkProps) {
     >
       <path
         d="M-3.05176e-05 0H40.717H83V164L40.717 146L-3.05176e-05 164V0Z"
-        fill="url(#paint0_linear_304_171)"
+        fill={`url(#bookmark_linear_${props.id})`}
       />
       <defs>
         <linearGradient
-          id="paint0_linear_304_171"
+          id={`bookmark_linear_${props.id}`}
           x1="0.521984"
           y1="-7.27474e-07"
           x2="77.3858"
