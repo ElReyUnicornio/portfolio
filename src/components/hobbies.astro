@@ -1,5 +1,84 @@
+---
+import bg from "../assets/bgAboutMe.jpg";
+import Banner from "./atoms/HobbiesBanner.astro";
+import corner from "../assets/corner.svg";
+import { Image } from "astro:assets";
+---
+
 <section
   id="Hobbies"
-  class="relative z-0 w-full h-screen flex justify-center items-center snap-center bg-[#2C1F3D]"
+  class="relative z-0 w-full h-screen flex flex-col justify-center items-center snap-center overflow-hidden bg-[#2C1F3D]"
 >
+  <div class="w-full grow relative px-[7%] flex gap-4">
+    <div
+      id="parallax"
+      class="absolute left-0 w-full h-full z-0 overflow-hidden"
+    >
+      <div
+        data-depth="0.3"
+        class="absolute z-0 w-full h-full flex justify-center items-center"
+      >
+        <Image
+          id="hobbies-bg"
+          class="w-full h-full scale-125"
+          src={bg}
+          alt=""
+        />
+      </div>
+      <div class="absolute z-10 top-0 w-full h-full left-0 bg-black opacity-50">
+      </div>
+
+      <div class="absolute z-20 w-full h-full">
+        <Image
+          class="absolute bottom-0 right-0 z-10"
+          src={corner}
+          alt="corner"
+        />
+      </div>
+      <div data-depth="0.2" class="absolute z-20 w-full h-full">
+        <div class="absolute z-30 bottom-0 right-36 w-1/2 h-5/6 bg-red-600">
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-full h-full relative z-30 flex flex-col gap-4 justify-center items-start"
+    >
+      <div class="overflow-hidden mb-4 w-full">
+        <h2
+          class="text-5xl font-extrabold animate-slide-down bg-gradient-to-br to-gradient-vex-purple from-gradient-vex-green bg-clip-text text-transparent"
+        >
+          Sobre mí
+        </h2>
+      </div>
+      <div class="overflow-hidden w-full">
+        <p
+          class="text-2xl w-5/6 text-white font-medium animate-slide-down text-balance"
+        >
+          Soy un programador e ilustrador autodidacta, me gusta aprender cosas
+          nuevas y siempre estoy buscando la forma de mejorar mis habilidades.
+          Me gustan los videojuegos, el arte y la programación.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-full h-full relative z-20 flex flex-col justify-end items-center gap-4"
+    >
+    </div>
+  </div>
+  <Banner title="Experiencia" section="jobs" />
 </section>
+
+<script>
+  import Parallax from "parallax-js";
+  const scene = document.getElementById("parallax");
+
+  function initializeParallax() {
+    if (!scene) return;
+    const parallaxInstance = new Parallax(scene, {
+      relativeInput: true,
+    });
+  }
+
+  initializeParallax();
+</script>

@@ -2,7 +2,6 @@ import Bookmark from "./bookmark";
 import { useStore } from "@nanostores/react";
 import { jobsIndex, filteredJobs } from "../../store";
 import { useEffect, useState } from "react";
-import { set } from "astro:schema";
 
 export default function JobBookmark() {
   const index = useStore(jobsIndex);

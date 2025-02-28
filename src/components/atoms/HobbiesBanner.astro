@@ -1,0 +1,50 @@
+---
+import Github from "../icons/github";
+import Linkedin from "../icons/linkedin";
+import Instagram from "../icons/instagram";
+import Tooltip from "./tooltip";
+
+interface Props {
+  title: string;
+  section: string;
+}
+
+const { title, section }: Props = Astro.props;
+---
+
+<div
+  class="h-36 w-full py-5 relative flex justify-end items-center px-20 z-50 bg-bg"
+>
+  <!-- Marquee ---------------------------------------------------------------------- -->
+  <div class="w-full h-full overflow-hidden absolute top-0 left-0 z-0">
+    <div
+      class="min-w-full pointer-events-none h-full flex gap-20 items-center absolute top-0 left-20 text-7xl text-white/20 font-extrabold whitespace-nowrap z-0"
+    >
+      <span>Alejandro Soto</span>
+    </div>
+  </div>
+  <!-- Technologies ----------------------------------------------------------------- -->
+  <div
+    class="flex justify-center items-center h-24 gap-6 bg-bg border-border rounded-ss-xl rounded-ee-xl border-8 -skew-x-[25deg] px-5 pl-6 relative z-10"
+  >
+    <span class="font-bold text-white skew-x-[25deg]"
+      >contacto@alejandro.site</span
+    >
+    <a
+      class="skew-x-[25deg]"
+      href="https://www.linkedin.com/in/alejandro-soto-canales-0a811528b/"
+    >
+      <Linkedin className="text-white w-8 h-8" />
+    </a>
+    <a class="skew-x-[25deg]" href="https://www.instagram.com/srreyunicornio/">
+      <Instagram className="text-white w-8 h-8" />
+    </a>
+    <a
+      class="skew-x-[25deg] relative group"
+      href="https://github.com/ElReyUnicornio"
+    >
+      <Github className="text-white w-8 h-8" />
+      <Tooltip> Github </Tooltip>
+    </a>
+  </div>
+</div>
