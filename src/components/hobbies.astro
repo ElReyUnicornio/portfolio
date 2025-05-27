@@ -1,5 +1,5 @@
 ---
-import bg from "../assets/bgAboutMe.jpg";
+import bg from "../assets/bgAboutMe.png";
 import Banner from "./atoms/HobbiesBanner.astro";
 import corner from "../assets/corner.svg";
 import { Image } from "astro:assets";
@@ -20,23 +20,27 @@ import { Image } from "astro:assets";
       >
         <Image
           id="hobbies-bg"
-          class="w-full h-full scale-125"
+          class="w-full h-full scale-110 blur-sm object-cover"
           src={bg}
           alt=""
         />
       </div>
-      <div class="absolute z-10 top-0 w-full h-full left-0 bg-black opacity-50">
+      <div
+        class="absolute z-10 top-0 w-full h-full left-0 bg-gradient-to-br from-gradient-vex-green to-gradient-vex-purple opacity-10"
+      >
+      </div>
+      <div class="absolute z-20 top-0 w-full h-full left-0 bg-black opacity-60">
       </div>
 
-      <div class="absolute z-20 w-full h-full">
+      <div class="absolute z-30 w-full h-full">
         <Image
           class="absolute bottom-0 right-0 z-10"
           src={corner}
           alt="corner"
         />
       </div>
-      <div data-depth="0.2" class="absolute z-20 w-full h-full">
-        <div class="absolute z-30 bottom-0 right-36 w-1/2 h-5/6 bg-red-600">
+      <div data-depth="0.2" class="absolute z-30 w-full h-full">
+        <div class="absolute z-30 bottom-0 right-36 w-1/2 h-5/6 bg-red-600/25">
         </div>
       </div>
     </div>
