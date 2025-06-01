@@ -3,13 +3,7 @@ import Github from "../icons/github";
 import Linkedin from "../icons/linkedin";
 import Instagram from "../icons/instagram";
 import Tooltip from "./tooltip";
-
-interface Props {
-  title: string;
-  section: string;
-}
-
-const { title, section }: Props = Astro.props;
+import ContactMail from "./contactMail";
 ---
 
 <div
@@ -27,9 +21,9 @@ const { title, section }: Props = Astro.props;
   <div
     class="flex justify-center items-center h-24 gap-6 bg-bg border-border rounded-ss-xl rounded-ee-xl border-8 -skew-x-[25deg] px-5 pl-6 relative z-10"
   >
-    <span class="font-bold text-white skew-x-[25deg]"
-      >contacto@alejandrosoto.site</span
-    >
+    <div class="skew-x-[25deg]">
+      <ContactMail client:visible />
+    </div>
     <a
       class="skew-x-[25deg]"
       href="https://www.linkedin.com/in/alejandro-soto-canales-0a811528b/"

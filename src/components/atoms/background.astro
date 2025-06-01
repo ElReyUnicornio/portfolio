@@ -4,7 +4,7 @@ import Chevron from "../icons/chevron";
 ---
 
 <div
-  class="absolute top-0 left-0 z-10 w-full h-screen grid grid-cols-[repeat(30,minmax(0,1fr))] lg:grid-cols-[repeat(45,minmax(0,1fr))]"
+  class="absolute top-0 left-0 z-10 w-full h-svh grid grid-cols-[repeat(20,minmax(0,1fr))] lg:grid-cols-[repeat(45,minmax(0,1fr))]"
 >
   {
     Array.from({ length: 30 ** 2 }).map((_, i) => (
@@ -14,14 +14,14 @@ import Chevron from "../icons/chevron";
   <div
     class="absolute bottom-0 left-0 aspect-[202/26] w-full flex flex-col justify-end items-center"
   >
-    <img src={bottom.src} class="absolute w-full bottom-0 z-0" />
-    <p class="text-3xl text-white relative z-10 font-extrabold">
+    <img src={bottom.src} class="object-cover absolute h-32 bottom-0 z-0 lg:object-contain lg:w-full lg:h-auto" />
+    <p class="md:text-3xl text-xl text-white relative z-10 font-extrabold">
       El límite lo pone tu <span
         class="bg-gradient-to-b from-[#B52BF4] to-[#12A38B] bg-clip-text text-transparent"
         >imaginación</span
       >
     </p>
-    <a href="#Proyectos" class="py-5">
+    <a href="#Proyectos" class="py-0 lg:py-5">
       <Chevron className="w-12 h-12 text-white animate-bounce" />
     </a>
   </div>

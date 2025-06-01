@@ -9,25 +9,11 @@ import Tooltip from "./tooltip";
 import CardTimeline from "../atoms-card/cardTimeline";
 import cardBG from "../../assets/card-bg.svg";
 import CrownBookmark from "../atoms-card/crownBookmark";
+import ContactMail from "./contactMail";
 
 export default function PresentationCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const [tooltipHidden, setTooltipHidden] = useState(true);
-
-  //tooltip controls
-  useEffect(() => {
-    if (tooltipHidden) return;
-
-    const timer = setTimeout(() => {
-      setTooltipHidden(true);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [tooltipHidden]);
 
   //gyroscope controls
   useEffect(() => {
@@ -109,37 +95,27 @@ export default function PresentationCard() {
     }
   }
 
-  function copyToClipboard() {
-    const email = "contacto@alejandrosoto.site";
-    navigator.clipboard.writeText(email);
-    setTooltipHidden(false);
-  }
-
   return (
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="w-10/12 h-4/6 md:max-w-4xl lg:h-[500px] perspective relative z-20"
+      className="w-11/12 h-[40%] md:max-w-4xl lg:h-[500px] perspective relative z-20"
     >
       <div
         ref={cardRef}
-        className="w-full h-full rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm lg:max-w-4xl lg:h-[500px] p-5 transition-transform overflow-hidden"
+        className="w-full h-full rounded-3xl p-3 lg:rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm lg:max-w-4xl lg:h-[500px] lg:p-5 transition-transform overflow-hidden"
       >
-        <div className="relative flex flex-col justify-center items-center border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-[35px] p-8 shadow shadow-gray-900">
+        <div className="relative p-4 flex flex-col justify-center items-center border-[1px] lg:border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-2xl lg:rounded-[35px] md:p-8 shadow shadow-gray-900">
           {/* CardBG ------------------------------------------------------------------------------ */}
           <img
             src={cardBG.src}
-            className="absolute -top-14 -right-14 h-full scale-[1.8] z-0"
+            className="object-cover absolute -top-[12%] -right-[7%] lg:-top-14 lg:-right-14 h-full scale-[1.8] z-0"
           />
 
           {/* Avatar && XpBar ------------------------------------------------------------------------------ */}
 
-          <div className="flex flex-col lg:flex-row justify-between w-full relative z-10">
-            <Avatar
-              url={pp.src}
-              name="Alejandro Soto"
-              title="Desarrollador Fullstack"
-            />
+          <div className="flex flex-row justify-between w-full relative z-10">
+            <Avatar url={pp.src} name="Alejandro Soto" title="Fullstack Dev." />
             <CrownBookmark />
           </div>
 
@@ -147,25 +123,25 @@ export default function PresentationCard() {
 
           <div className="w-full flex justify-between items-center grow relative z-10">
             <img
-              className="relative h-28 left-4 top-4 lg:left-2 lg:-top-0"
+              className="relative h-12 md:h-28 left-4 md:top-4 lg:left-2 lg:-top-0"
               src={tecnologies.src}
               alt="react, tailwind, nest, typeScript"
             />
-            <div className="absolute top-1/2 left-2 -translate-y-1/2 flex gap-[16px] h-28">
-              <div className="w-28 h-full group relative">
+            <div className="absolute top-1/2 left-2 -translate-y-1/2 flex gap-[6px] md:gap-[16px] h-12 md:h-28 ml-2 md:ml-0">
+              <div className="w-12 md:w-28 h-full group relative">
                 <Tooltip>React</Tooltip>
               </div>
-              <div className="w-28 h-full group relative">
+              <div className="w-12 md:w-28 h-full group relative">
                 <Tooltip>Tailwind</Tooltip>
               </div>
-              <div className="w-28 h-full group relative">
+              <div className="w-12 md:w-28 h-full group relative">
                 <Tooltip>Nest.JS</Tooltip>
               </div>
-              <div className="w-28 h-full group relative">
+              <div className="w-12 md:w-28 h-full group relative">
                 <Tooltip>TypeScript</Tooltip>
               </div>
             </div>
-            <div className="w-20 h-full grow">
+            <div className="w-12 md:w-20 h-full grow">
               <CardTimeline />
             </div>
           </div>
@@ -174,22 +150,10 @@ export default function PresentationCard() {
 
           <div className="relative flex justify-between w-full items-end z-10">
             <div>
-              <h1 className="font-bold text-base text-white">contacto:</h1>
-              <div className="relative">
-                <p
-                  className="text-sm text-white font-bold py-1 rounded-full cursor-pointer"
-                  onClick={copyToClipboard}
-                >
-                  contacto@alejandrosoto.site
-                </p>
-                <Tooltip
-                  ref={tooltipRef}
-                  hidden={tooltipHidden}
-                  showOnHover={false}
-                >
-                  ¡Copiado!
-                </Tooltip>
-              </div>
+              <h1 className="font-semibold md:font-bold text-xs md:text-base text-white">
+                contacto:
+              </h1>
+              <ContactMail />
             </div>
             <div className="flex">
               <a
@@ -198,7 +162,7 @@ export default function PresentationCard() {
                 className="hover:scale-125 transition-transform duration-100"
               >
                 <img
-                  className="w-10 h-10 mr-4"
+                  className="w-5 h-5 md:w-10 md:h-10 mr-4"
                   src={linkedin.src}
                   alt="linkedin"
                 />
@@ -208,7 +172,7 @@ export default function PresentationCard() {
                 target="_blank"
                 className="hover:scale-125 transition-transform duration-100"
               >
-                <Github className="w-10 h-10" fill="#908E92" />
+                <Github className="w-5 h-5 md:w-10 md:h-10" fill="#908E92" />
               </a>
             </div>
           </div>
