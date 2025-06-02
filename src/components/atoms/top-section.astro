@@ -1,0 +1,76 @@
+---
+import CategoryIcon from "./categoryIcon";
+import CarouselController from "./carouselController";
+---
+
+<div
+  class="flex h-28 z-20 md:hidden flex-col"
+>
+  <div class="flex bg-[#18131C] flex-col justify-center relative z-10 px-[7%] pt-2">
+    <div class="flex flex-row items-center overflow-hidden mb-1">
+      <div
+        id="m-category-icon"
+        class="p-1 rounded-sm h-8 w-8 mr-4 animate-slide-down"
+      >
+        <CategoryIcon client:visible />
+      </div>
+      <h1
+        id="m-project-category"
+        class="font-extrabold text-4xl bg-clip-text text-transparent animate-slide-down"
+      >
+        ------------------
+      </h1>
+    </div>
+    <div class="overflow-hidden mb-3">
+      <h2
+        id="m-project-title"
+        class="text-2xl font-extrabold text-white animate-slide-down"
+      >
+        ------------------
+      </h2>
+    </div>
+</div>
+<div
+    id="border"
+    class="block md:hidden w-full h-1 bg-gradient-to-r from-gradient-vex-green to-gradient-vex-purple"
+  >
+  </div>
+
+<script>
+  import { filteredProjects, projectsIndex } from "../../store";
+
+  const categoryIcon = document.getElementById("m-category-icon");
+  const category = document.getElementById("m-project-category");
+  const title = document.getElementById("m-project-title");
+  const border = document.getElementById("border");
+
+  function updateData(project: any) {
+    if (!categoryIcon || !category || !title || !border) return;
+    refreshAnimation(categoryIcon);
+    refreshAnimation(category);
+    refreshAnimation(title);
+
+    border.style.backgroundImage = `linear-gradient(90deg, ${project.startColor}, ${project.endColor})`;
+    categoryIcon.style.backgroundImage = `linear-gradient(${project.startColor}, ${project.endColor})`;
+    category.style.backgroundImage = `linear-gradient(${project.startColor}, ${project.endColor})`;
+    category.textContent = project.category.toUpperCase();
+    title.textContent = project.name;
+  }
+
+  function refreshAnimation(element: HTMLElement) {
+    element.classList.remove("animate-slide-down");
+    setTimeout(() => {
+      element.classList.add("animate-slide-down");
+    }, 1);
+  }
+
+  filteredProjects.subscribe((projects: any) => {
+    const project = projects[projectsIndex.get()];
+    updateData(project);
+  });
+
+  projectsIndex.subscribe((index: any) => {
+    const project = filteredProjects.get()[index];
+    updateData(project);
+  });
+</script>

@@ -4,7 +4,7 @@ export default function ReactIcon() {
   return (
     <div className="relative group">
       <svg
-        className="h-16 w-16 mx-2 first:ml-0"
+        className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0"
         viewBox="0 0 256 228"
         width="256"
         height="228"

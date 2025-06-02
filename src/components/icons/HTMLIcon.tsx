@@ -6,7 +6,7 @@ export default function HTMLIcon() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 452 520"
-        className="h-16 w-16 mx-2 first:ml-0"
+        className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0"
       >
         <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52"></path>
         <path fill="#ef652a" d="M226 472l149-41 35-394H226"></path>

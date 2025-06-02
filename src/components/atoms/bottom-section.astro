@@ -1,0 +1,47 @@
+---
+import CarouselController from "./carouselController";
+import bg from "../../assets/section-bottom.svg";
+---
+
+<div
+  class="h-20 relative aspect-[841/867] z-20 md:flex flex-col px-[7%] pt-6 -mt-6"
+>
+  <div class="absolute top-0 left-0 w-full h-full z-0">
+    <img src={bg.src} aria-hidden="true" class="object-cover w-full h-full" />
+  </div>
+  <div class="flex flex-col justify-center relative z-10">
+    <div class="flex grow items-end w-full pb-2">
+      <CarouselController forSection="projects" client:visible />
+    </div>
+  </div>
+</div>
+
+<script>
+  import { filteredProjects, projectsIndex } from "../../store";
+
+  const description = document.getElementById("m-project-description");
+
+  function updateData(project: any) {
+    if (!description) return;
+    refreshAnimation(description);
+
+    description.textContent = project.description;
+  }
+
+  function refreshAnimation(element: HTMLElement) {
+    element.classList.remove("animate-slide-down");
+    setTimeout(() => {
+      element.classList.add("animate-slide-down");
+    }, 1);
+  }
+
+  filteredProjects.subscribe((projects: any) => {
+    const project = projects[projectsIndex.get()];
+    updateData(project);
+  });
+
+  projectsIndex.subscribe((index: any) => {
+    const project = filteredProjects.get()[index];
+    updateData(project);
+  });
+</script>

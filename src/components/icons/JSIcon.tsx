@@ -8,7 +8,7 @@ export default function JSIcon() {
         width="2500"
         height="2500"
         viewBox="0 0 1052 1052"
-        className="h-16 w-16 mx-2 first:ml-0"
+        className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0"
       >
         <path fill="#f0db4f" d="M0 0h1052v1052H0z"></path>
         <path

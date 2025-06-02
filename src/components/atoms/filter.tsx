@@ -22,7 +22,7 @@ export default function Filter(props: FilterProps) {
   return (
     <div>
       <button
-        className="p-2 border-border border-4 bg-bg rounded-full absolute top-8 right-28"
+        className="p-2 border-border border-4 bg-bg rounded-full absolute md:top-8 md:right-28 top-6 right-[7%]"
         onClick={() => setOpen((prev) => !prev)}
       >
         <svg
@@ -90,7 +90,7 @@ export default function Filter(props: FilterProps) {
               </select>
             </div>
             <p className="font-medium w-full mb-2">Tecnologías</p>
-            <div className="flex flex-wrap gap-8 mb-4">
+            <div className="flex flex-wrap gap-4 md:gap-8 mb-4">
               {technologies.map((tech) => (
                 <div
                   className="flex items-center"
@@ -128,7 +128,7 @@ export default function Filter(props: FilterProps) {
               className="bg-white text-black p-2 rounded-md w-full mt-8 mb-1 font-bold"
               type="submit"
             >
-              Flitrar
+              Filtrar
             </button>
           </form>
         </div>

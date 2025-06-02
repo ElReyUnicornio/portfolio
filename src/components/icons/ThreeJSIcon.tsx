@@ -4,7 +4,7 @@ export default function ThreeJSIcon() {
   return (
     <div className="relative group">
       <svg
-        className="h-16 w-16 mx-2 first:ml-0"
+        className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"

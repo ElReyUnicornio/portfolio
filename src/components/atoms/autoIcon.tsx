@@ -32,11 +32,11 @@ export default function AutoIcon({ name }: { name: string }) {
     case "vite":
       return <ViteIcon />;
     case "angular":
-      return <Angular className="h-14 w-14 mx-2 first:ml-0" />;
+      return <Angular className="h-8 w-8 md:h-14 md:w-14 mx-2 first:ml-0" />;
     case "mySql":
-      return <MySQL className="h-16 w-16 mx-2 first:ml-0" />;
+      return <MySQL className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0" />;
     case "web":
-      return <DevIcon className="w-10 h-10 text-bg" />;
+      return <DevIcon className="w-6 h-6 md:w-10 md:h-10 text-bg" />;
     default:
       return;
   }

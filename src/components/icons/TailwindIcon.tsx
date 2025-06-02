@@ -9,7 +9,7 @@ export default function Tailwindicon() {
         height="154"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid"
-        className="h-16 w-16 mx-2 first:ml-0"
+        className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0"
       >
         <defs>
           <linearGradient
