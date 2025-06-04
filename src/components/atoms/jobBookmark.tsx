@@ -11,7 +11,7 @@ export default function JobBookmark() {
     setAnimation(["animate-slide-down"]);
   }, [index]);
   return (
-    <div className="flex flex-col items-center justify-center relative mr-[10px] h-56 aspect-[83/164]">
+    <div className="flex flex-col items-center justify-center relative mr-[10px] md:h-56 h-20 aspect-[83/164]">
       <div className="w-3/4 overflow-hidden">
         <img
           src={filteredJobs.get()[index].logo.src}

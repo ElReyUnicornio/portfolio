@@ -22,7 +22,7 @@ export const jobs: Job[] = [
     description:
       "Consultora dónde desarrollé aplicaciones web fullstack, aplicaciones móviles con react native y le dí mantenimiento a algunas de las aplicaciones ya existentes",
     category: "web",
-    technologies: "react angular tailwind laravel mySql",
+    technologies: "react angular laravel mySql",
     languages: "js php",
     demo: "https://gmstore.com.mx/",
     image: gms,

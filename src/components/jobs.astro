@@ -1,86 +1,36 @@
 ---
-import JobBookmark from "./atoms/jobBookmark";
 import Carousel from "./atoms/carousel";
 import Banner from "./atoms/jobsBanner.astro";
 import CarouselController from "./atoms/carouselController";
 import corner from "../assets/corner.svg";
 import { Image } from "astro:assets";
+import JobInfo from "./atoms/jobInfo.astro";
 ---
 
 <section
   id="Trabajos"
   class="relative z-0 w-full h-svh flex flex-col justify-center items-center snap-center overflow-hidden bg-[#2C1F3D]"
 >
-  <div class="w-full grow relative px-[7%] flex gap-4">
-    <Image class="absolute bottom-0 right-0 z-10" src={corner} alt="corner" />
+  <div class="w-full grow relative px-[7%] flex md:flex-row flex-col gap-4">
+    <!-- background -->
+    <Image class="h-48 absolute bottom-0 right-0 z-10 w-fit aspect-[411/440] md:h-auto" src={corner} alt="corner" />
     <div class="absolute top-0 left-0 w-full h-full z-0">
       <Carousel section="jobs-bg" client:visible />
-      <div class="absolute z-10 top-0 w-full h-full left-0 bg-black opacity-75">
+      <div class="absolute z-10 top-0 w-full h-full left-0 bg-black opacity-65">
       </div>
     </div>
-
-    <div
-      class="w-full h-full relative z-20 flex flex-col gap-4 justify-start items-start"
-    >
-      <JobBookmark client:visible />
-      <div class="overflow-hidden mb-4 w-full mt-16">
-        <h2
-          id="job-title"
-          class="text-5xl font-extrabold animate-slide-down bg-gradient-to-b from-gray-600 to-white bg-clip-text text-transparent"
-        >
-          ------------------
-        </h2>
-      </div>
-      <div class="overflow-hidden w-full">
-        <p
-          id="job-description"
-          class="text-2xl w-5/6 text-white font-medium animate-slide-down text-balance"
-        >
-          -------------------------
-        </p>
-      </div>
-    </div>
+    <JobInfo />
+    <!-- carrousel -->
     <div
       class="w-full h-full relative z-20 flex flex-col justify-center items-center gap-4"
     >
-      <div class="w-full aspect-video rounded-lg overflow-hidden shadow">
+      <div class="md:w-full w-2/3 aspect-video rounded-lg overflow-hidden shadow">
         <Carousel section="jobs" client:visible />
       </div>
-      <div class="w-1/2">
+      <div class="w-2/3 md:w-1/2">
         <CarouselController forSection="jobs" client:visible />
       </div>
     </div>
   </div>
   <Banner title="Experiencia" section="jobs" />
 </section>
-
-<script>
-  import { filteredJobs, jobsIndex } from "../store";
-  const title = document.getElementById("job-title");
-  const description = document.getElementById("job-description");
-
-  function updateData(job: any) {
-    if (!title || !description) return;
-    refreshAnimation(title);
-    refreshAnimation(description);
-    title.textContent = job.name.toUpperCase();
-    description.textContent = job.description;
-  }
-
-  function refreshAnimation(element: HTMLElement) {
-    element.classList.remove("animate-slide-down");
-    setTimeout(() => {
-      element.classList.add("animate-slide-down");
-    }, 1);
-  }
-
-  filteredJobs.subscribe((projects: any) => {
-    const job = projects[jobsIndex.get()];
-    updateData(job);
-  });
-
-  jobsIndex.subscribe((index: any) => {
-    const job = filteredJobs.get()[index];
-    updateData(job);
-  });
-</script>

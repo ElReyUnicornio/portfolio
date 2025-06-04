@@ -1,0 +1,57 @@
+---
+import JobBookmark from "./jobBookmark";
+---
+
+<div
+      class="w-full h-full relative z-20 flex flex-col gap-2 md:gap-4 justify-start items-start"
+    >
+      <JobBookmark client:visible />
+      <div class="overflow-hidden mb-4 w-full md:mt-16 mt-4">
+        <h2
+          id="job-title"
+          class="md:text-5xl text-3xl font-extrabold animate-slide-down bg-gradient-to-b from-gray-600 to-white bg-clip-text text-transparent"
+        >
+          ------------------
+        </h2>
+      </div>
+      <div class="overflow-hidden w-full">
+        <p
+          id="job-description"
+          class="md:text-2xl text-xl w-5/6 text-white font-medium animate-slide-down text-balance"
+        >
+          -------------------------
+        </p>
+      </div>
+    </div>
+
+    <script>
+        import { filteredJobs, jobsIndex } from "../../store";
+        const title = document.getElementById("job-title");
+        const description = document.getElementById("job-description");
+      
+        function updateData(job: any) {
+          if (!title || !description) return;
+          refreshAnimation(title);
+          refreshAnimation(description);
+          title.textContent = job.name.toUpperCase();
+          description.textContent = job.description;
+        }
+      
+        function refreshAnimation(element: HTMLElement) {
+          element.classList.remove("animate-slide-down");
+          setTimeout(() => {
+            element.classList.add("animate-slide-down");
+          }, 1);
+        }
+      
+        filteredJobs.subscribe((projects: any) => {
+          const job = projects[jobsIndex.get()];
+          updateData(job);
+        });
+      
+        jobsIndex.subscribe((index: any) => {
+          const job = filteredJobs.get()[index];
+          updateData(job);
+        });
+      </script>
+      

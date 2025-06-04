@@ -1,6 +1,5 @@
 ---
 import Chevron from "../icons/chevron";
-import AutoIcon from "./autoIcon";
 import BannerIcons from "./bannerIcons";
 
 interface Props {
@@ -13,12 +12,12 @@ const { title, section }: Props = Astro.props;
 
 <div
   id="j-banner"
-  class="h-36 w-full py-5 relative flex justify-between items-center px-20 z-10"
+  class="md:h-36 h-20 w-full py-5 relative flex justify-between items-center px-[7%] md:px-20 z-10"
 >
   <!-- Marquee ---------------------------------------------------------------------- -->
   <div class="w-full h-full overflow-hidden absolute top-0 left-0 z-0">
     <div
-      class="min-w-full pointer-events-none h-full flex gap-20 items-center absolute animate-marquee top-0 left-0 text-9xl text-white/20 font-extrabold whitespace-nowrap z-0"
+      class="min-w-full pointer-events-none h-full flex gap-20 items-center absolute animate-marquee top-0 left-0 md:text-9xl text-6xl text-white/20 font-extrabold whitespace-nowrap z-0"
     >
       <span>{title.toUpperCase()}</span>
       <span>{title.toUpperCase()}</span>
@@ -27,7 +26,7 @@ const { title, section }: Props = Astro.props;
       <span>{title.toUpperCase()}</span>
     </div>
     <div
-      class="min-w-full pointer-events-none h-full ml-20 flex gap-20 items-center absolute animate-marquee2 top-0 left-0 text-9xl text-white/20 font-extrabold whitespace-nowrap z-0"
+      class="min-w-full pointer-events-none h-full ml-20 flex gap-20 items-center absolute animate-marquee2 top-0 left-0 md:text-9xl text-6xl text-white/20 font-extrabold whitespace-nowrap z-0"
     >
       <span>{title.toUpperCase()}</span>
       <span>{title.toUpperCase()}</span>
@@ -38,7 +37,7 @@ const { title, section }: Props = Astro.props;
   </div>
   <!-- Technologies ----------------------------------------------------------------- -->
   <div
-    class="flex justify-center items-center h-24 gap-3 bg-bg border-border rounded-ss-xl rounded-ee-xl border-8 -skew-x-[25deg] px-5 pl-6 relative z-10"
+    class="flex justify-center items-center md:h-24 h-16 gap-1 md:gap-3 bg-bg border-border rounded-ss-xl rounded-ee-xl md:border-8 border-4 -skew-x-[25deg] px-5 pl-6 relative z-10"
   >
     <BannerIcons section={section} client:visible />
   </div>
@@ -46,15 +45,15 @@ const { title, section }: Props = Astro.props;
     id="j-baner-link"
     href="#"
     target="_blank"
-    class="h-20 flex justify-between items-center bg-bg border-8 border-border rounded-full relative z-10 group"
+    class="md:h-20 h-14 flex justify-between items-center bg-bg md:border-8 border-4 border-border rounded-full relative z-10 group"
   >
-    <span class="font-bold text-4xl mx-10 text-border group-hover:opacity-75">
+    <span class="hidden md:block font-bold text-4xl mx-10 text-border group-hover:opacity-75">
       VISITAR
     </span>
     <div
-      class="h-12 w-12 mr-2 rounded-full bg-border flex items-center justify-center group-hover:opacity-75"
+      class="md:h-12 md:w-12 h-8 ml-1 mr-1 md:ml-0 md:mr-2 rounded-full md:bg-border bg-bg flex items-center justify-center group-hover:opacity-75"
     >
-      <Chevron rotation={-90} className="w-10 h-10 text-bg" />
+      <Chevron rotation={-90} className="w-10 h-10 md:text-bg text-border" />
     </div>
   </a>
 </div>
