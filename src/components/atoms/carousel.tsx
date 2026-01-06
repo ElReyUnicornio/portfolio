@@ -70,7 +70,9 @@ export default function Carousel({ section }: { section: string }) {
                 : item.image.src
             }
             alt={item.name}
-            className="w-full h-full absolute top-0 left-0 object-cover"
+            className={`w-full h-full absolute top-0 left-0 object-cover${
+              section == "jobs-bg" ? " blur-sm" : ""
+            }`}
             style={{ transform: `translateX(${i * 100}%)` }}
           />
         ))}

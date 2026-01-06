@@ -13,7 +13,7 @@ export default function XpBar(props: XpBarProps) {
         ))}
       </div>
       <p className="w-10 md:w-auto leading-none md:leading-normal text-[10px] md:text-xs text-center text-white/75 font-semibold md:font-bold mt-1 md:mt-0">
-        {props.value + " " + props.legend}
+        {Math.floor(props.value) + " " + props.legend}
       </p>
     </div>
   );

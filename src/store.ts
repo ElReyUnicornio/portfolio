@@ -2,7 +2,7 @@ import { atom } from "nanostores";
 import { projects, type Project } from "./projects";
 import { jobs, type Job } from "./jobs";
 
-export const cooldown = 6;
+export const cooldown = 10;
 
 export const filteredProjects = atom(projects);
 export const filteredJobs = atom(jobs);

@@ -4,7 +4,7 @@ import Bookmark from "../atoms/bookmark";
 
 export default function CrownBookmark() {
   return (
-    <div className="flex flex-col items-center relative mr-[10px]">
+    <div className="flex flex-col items-center relative mr-[4px]">
       <a
         href="https://www.instagram.com/srreyunicornio/"
         target="_blank"
@@ -12,7 +12,7 @@ export default function CrownBookmark() {
       >
         <img src={crown.src} alt="corona" className="w-6 md:w-16" />
       </a>
-      <XpBar value={2} max={3} legend="años exp" />
+      <XpBar value={2.5} max={3} legend="años exp" />
       <Bookmark
         from="#18E98E"
         to="#550F9F"

@@ -1,8 +1,11 @@
 import Angular from "../icons/angular";
 import DevIcon from "../icons/devIcon";
+import Fabric from "../icons/Fabric";
 import FirebaseIcon from "../icons/FirebaseIcon";
 import Github from "../icons/github";
+import Gradle from "../icons/Gradle";
 import HTMLIcon from "../icons/HTMLIcon";
+import { Java } from "../icons/Java";
 import JSIcon from "../icons/JSIcon";
 import LaravelIcon from "../icons/LaravelIcon";
 import MySQL from "../icons/mySql";
@@ -35,7 +38,15 @@ export default function AutoIcon({ name }: { name: string }) {
       return <Angular className="h-8 w-8 md:h-14 md:w-14 mx-2 first:ml-0" />;
     case "mySql":
       return <MySQL className="h-10 w-10 md:h-16 md:w-16 mx-2 first:ml-0" />;
+    case "java":
+      return <Java className="h-8 w-8 md:h-14 md:w-14 mx-2 first:ml-0" />;
+    case "gradle":
+      return <Gradle />;
+    case "fabric":
+      return <Fabric />;
     case "web":
+      return <DevIcon className="w-6 h-6 md:w-10 md:h-10 text-bg" />;
+    case "gamedev":
       return <DevIcon className="w-6 h-6 md:w-10 md:h-10 text-bg" />;
     default:
       return;

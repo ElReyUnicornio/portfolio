@@ -1,6 +1,9 @@
 import solidos from "./assets/solidos.png";
 import menu from "./assets/menu.png";
 import gaibu from "./assets/Gaibu.png";
+import webones from "./assets/webones.png";
+import hardcorez from "./assets/hardcorez.png";
+import mitologias from "./assets/mitologias.png";
 
 export interface Project {
   name: string;
@@ -16,17 +19,53 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Sólidos en revolución",
+    name: "Mitologías RPG",
     description:
-      "Aplicación web que permite visualizar la revolución de sólidos en 3D.",
-    category: "web",
-    technologies: "html tailwind js vite",
-    languages: "javaScript",
-    demo: "https://solidos-en-revolucion.alejandrosoto.site/",
-    image: solidos,
-    startColor: "#9333EA",
-    endColor: "#3B82F6",
+      "Serie de Minecraft estilo MMO RPG centrado en el farmeo y el combate. Participé desarrollando muchas mecánicas y sistemas para el gameplay de la serie.",
+    category: "gamedev",
+    technologies: "java gradle fabric",
+    languages: "java",
+    demo: "https://www.youtube.com/watch?v=Z9_607HEe8U",
+    image: mitologias,
+    startColor: "#372C30",
+    endColor: "#DD4740",
   },
+  {
+    name: "Hardcore Z",
+    description:
+      "Serie de Minecraft donde tenías que sobrevivir a una invasión zombie. Ayudé en el desarrollo de diversos objetos y algunas mecánicas principales para el gameplay.",
+    category: "gamedev",
+    technologies: "java gradle fabric",
+    languages: "java",
+    demo: "https://www.youtube.com/watch?v=iw2otpv6rDQ",
+    image: hardcorez,
+    startColor: "#B42319",
+    endColor: "#E8A71A",
+  },
+  {
+    name: "Webones Show",
+    description:
+      "Serie de Minecraft CTM compuesta por cuatro dimensiones donde había que recolectar cuatro huevos. Participé desarrollando algunos de los minijuegos diarios y objetos para la serie.",
+    category: "gamedev",
+    technologies: "java gradle fabric",
+    languages: "java",
+    demo: "https://www.youtube.com/watch?v=RlQ6KALfnr8",
+    image: webones,
+    startColor: "#E2E151",
+    endColor: "#E89879",
+  },
+  // {
+  //   name: "Sólidos en revolución",
+  //   description:
+  //     "Aplicación web que permite visualizar la revolución de sólidos en 3D.",
+  //   category: "web",
+  //   technologies: "html tailwind js vite",
+  //   languages: "javaScript",
+  //   demo: "https://solidos-en-revolucion.alejandrosoto.site/",
+  //   image: solidos,
+  //   startColor: "#9333EA",
+  //   endColor: "#3B82F6",
+  // },
   {
     name: "Menú Durango",
     description:
