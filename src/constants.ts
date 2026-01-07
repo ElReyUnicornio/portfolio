@@ -1,4 +1,4 @@
-export const categories: string[] = ["web"];
+export const categories: string[] = ["web", "gamedev"];
 export const technologies: string[] = [
   "html",
   "tailwind",
@@ -9,5 +9,7 @@ export const technologies: string[] = [
   "mysql",
   "firebase",
   "threejs",
+  "fabric",
+  "java "
 ];
-export const languages: string[] = ["javascript", "php"];
+export const languages: string[] = ["javascript", "php", "java "];
