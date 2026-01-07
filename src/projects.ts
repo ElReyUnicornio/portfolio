@@ -5,7 +5,6 @@ import smartSchool from "./assets/smartSchool.webp";
 import webones from "./assets/webones.webp";
 import hardcorez from "./assets/hardcorez.webp";
 import mitologias from "./assets/mitologias.webp";
-import salonBliss from "./assets/salonBliss.webp";
 
 export interface Project {
   name: string;
@@ -78,17 +77,6 @@ export const projects: Project[] = [
     image: menu,
     startColor: "#998100",
     endColor: "#FFD700",
-  },
-  {
-    name: "Salón bliss",
-    description: "Servicio de agenda de citas para salones de belleza donde hice la base del proyecto.",
-    category: "web",
-    technologies: "laravel",
-    languages: "php",
-    demo: "https://salon.gmstore.com.mx/",
-    image: salonBliss,
-    startColor: "#f04adf",
-    endColor: "#D42875",
   },
   {
     name: "Sólidos en revolución",

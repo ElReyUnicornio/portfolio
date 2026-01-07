@@ -19,7 +19,7 @@ export default function ContactMail() {
   }, [tooltipHidden]);
 
   function copyToClipboard() {
-    const email = "contacto@alejandrosoto.site";
+    const email = "alejandro.asc415@gmail.com";
     navigator.clipboard.writeText(email);
     setTooltipHidden(false);
   }
@@ -30,7 +30,7 @@ export default function ContactMail() {
         className="text-xs md:text-sm text-white font-medium md:font-bold py-0 md:py-1 rounded-full cursor-pointer"
         onClick={copyToClipboard}
       >
-        contacto@alejandrosoto.site
+        alejandro.asc415@gmail.com
       </p>
       <Tooltip ref={tooltipRef} hidden={tooltipHidden} showOnHover={false}>
         ¡Copiado!
