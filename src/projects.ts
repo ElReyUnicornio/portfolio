@@ -1,9 +1,11 @@
 import solidos from "./assets/solidos.png";
 import menu from "./assets/menu.png";
-import gaibu from "./assets/Gaibu.png";
+//import gaibu from "./assets/Gaibu.png";
+import smartSchool from "./assets/smartSchool.png";
 import webones from "./assets/webones.png";
 import hardcorez from "./assets/hardcorez.png";
 import mitologias from "./assets/mitologias.png";
+import salonBliss from "./assets/salonBliss.png";
 
 export interface Project {
   name: string;
@@ -54,18 +56,17 @@ export const projects: Project[] = [
     startColor: "#E2E151",
     endColor: "#E89879",
   },
-  // {
-  //   name: "Sólidos en revolución",
-  //   description:
-  //     "Aplicación web que permite visualizar la revolución de sólidos en 3D.",
-  //   category: "web",
-  //   technologies: "html tailwind js vite",
-  //   languages: "javaScript",
-  //   demo: "https://solidos-en-revolucion.alejandrosoto.site/",
-  //   image: solidos,
-  //   startColor: "#9333EA",
-  //   endColor: "#3B82F6",
-  // },
+  {
+    name: "SmartSchool",
+    description: "Un sistema de control escolar para docentes y alumnos donde ayudé a mantener el código existente y posteriormente a pasar el sistema a móviles con react native.",
+    category: "web",
+    technologies: "angular react laravel mysql",
+    languages: "javascript php",
+    demo: "https://smartschool.com.mx/",
+    image: smartSchool,
+    startColor: "#DB1333",
+    endColor: "#0A3468"
+  },
   {
     name: "Menú Durango",
     description:
@@ -75,19 +76,42 @@ export const projects: Project[] = [
     languages: "javaScript php",
     demo: "https://menudgo.com/",
     image: menu,
-    startColor: "#FFD700",
-    endColor: "#998100",
+    startColor: "#998100",
+    endColor: "#FFD700",
   },
   {
-    name: "Gaibu",
-    description:
-      "Una tienda de libretas personalizadas donde puedes crear y ver tus propios diseños en tiempo real.",
+    name: "Salón bliss",
+    description: "Servicio de agenda de citas para salones de belleza donde hice la base del proyecto.",
     category: "web",
-    technologies: "react tailwind firebase threejs",
-    languages: "javaScript",
-    demo: "https://gaibu-36d61.web.app/",
-    image: gaibu,
-    startColor: "#7745ED",
-    endColor: "#5411EB",
+    technologies: "laravel",
+    languages: "php",
+    demo: "https://salon.gmstore.com.mx/",
+    image: salonBliss,
+    startColor: "#f04adf",
+    endColor: "#D42875",
   },
+  {
+    name: "Sólidos en revolución",
+    description:
+      "Aplicación web que permite visualizar la revolución de sólidos en 3D.",
+    category: "web",
+    technologies: "html tailwind js vite",
+    languages: "javaScript",
+    demo: "https://solidos-en-revolucion.alejandrosoto.site/",
+    image: solidos,
+    startColor: "#9333EA",
+    endColor: "#3B82F6",
+  },
+  // {
+  //   name: "Gaibu",
+  //   description:
+  //     "Una tienda de libretas personalizadas donde puedes crear y ver tus propios diseños en tiempo real.",
+  //   category: "web",
+  //   technologies: "react tailwind firebase threejs",
+  //   languages: "javaScript",
+  //   demo: "https://gaibu-36d61.web.app/",
+  //   image: gaibu,
+  //   startColor: "#7745ED",
+  //   endColor: "#5411EB",
+  // },
 ];
