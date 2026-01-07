@@ -60,7 +60,7 @@ export const projects: Project[] = [
     name: "SmartSchool",
     description: "Un sistema de control escolar para docentes y alumnos donde ayudé a mantener el código existente y posteriormente a pasar el sistema a móviles con react native.",
     category: "web",
-    technologies: "angular react laravel mysql",
+    technologies: "angular react laravel mySql",
     languages: "javascript php",
     demo: "https://smartschool.com.mx/",
     image: smartSchool,
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     description:
       "Un servicio de menú digital dinámico para restaurantes, incluye subida de contenido y un punto de venta.",
     category: "web",
-    technologies: "react tailwind laravel mysql",
+    technologies: "react tailwind laravel mySql",
     languages: "javaScript php",
     demo: "https://menudgo.com/",
     image: menu,
