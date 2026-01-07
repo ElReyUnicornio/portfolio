@@ -1,11 +1,11 @@
-import solidos from "./assets/solidos.png";
-import menu from "./assets/menu.png";
+import solidos from "./assets/solidos.webp";
+import menu from "./assets/menu.webp";
 //import gaibu from "./assets/Gaibu.png";
-import smartSchool from "./assets/smartSchool.png";
-import webones from "./assets/webones.png";
-import hardcorez from "./assets/hardcorez.png";
-import mitologias from "./assets/mitologias.png";
-import salonBliss from "./assets/salonBliss.png";
+import smartSchool from "./assets/smartSchool.webp";
+import webones from "./assets/webones.webp";
+import hardcorez from "./assets/hardcorez.webp";
+import mitologias from "./assets/mitologias.webp";
+import salonBliss from "./assets/salonBliss.webp";
 
 export interface Project {
   name: string;

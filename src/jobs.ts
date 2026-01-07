@@ -1,10 +1,10 @@
 //Eufonia Studio
-import eufonia from "./assets/eufonia.png";
+import eufonia from "./assets/eufonia.webp";
 import eufoniaBG from "./assets/eufonia-bg.png";
 import eufoniaLogo from "./assets/eufonia-logo.svg";
 
 //GM store
-import gms from "./assets/gms.png";
+import gms from "./assets/gms.webp";
 import gmsBG from "./assets/gms-bg.png";
 import gmsLogo from "./assets/gms-logo.svg";
 
