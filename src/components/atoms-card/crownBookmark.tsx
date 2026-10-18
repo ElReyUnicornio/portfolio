@@ -1,8 +1,10 @@
 import XpBar from "./xpBar";
 import crown from "../../assets/ERUcrown.png";
 import Bookmark from "../atoms/bookmark";
+import { useTranslations } from "../../i18n/utils";
 
-export default function CrownBookmark() {
+export default function CrownBookmark({ lang = "es" }: { lang?: string }) {
+  const t = useTranslations(lang as any);
   return (
     <div className="flex flex-col items-center relative mr-[4px]">
       <a
@@ -12,7 +14,7 @@ export default function CrownBookmark() {
       >
         <img src={crown.src} alt="corona" className="w-6 md:w-16" />
       </a>
-      <XpBar value={2.5} max={3} legend="años exp" />
+      <XpBar value={2.5} max={3} legend={t("hero.exp")} />
       <Bookmark
         from="#18E98E"
         to="#550F9F"

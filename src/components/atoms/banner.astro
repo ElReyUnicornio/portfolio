@@ -6,9 +6,12 @@ import BannerIcons from "./bannerIcons";
 interface Props {
   title: string;
   section: string;
+  lang?: string;
 }
 
-const { title, section }: Props = Astro.props;
+const { title, section, lang = "es" }: Props = Astro.props;
+import { useTranslations } from "../../i18n/utils";
+const t_ui = useTranslations(lang as any);
 ---
 
 <div
@@ -49,7 +52,7 @@ const { title, section }: Props = Astro.props;
     class="md:h-20 h-14 flex justify-between items-center bg-bg border-4 md:border-8 border-border rounded-full relative z-10 group"
   >
     <span class="hidden md:block font-bold text-4xl mx-10 text-border group-hover:opacity-75">
-      VISITAR
+      {t_ui("ui.visit").toUpperCase()}
     </span>
     <div
       class="md:h-12 md:w-12 h-8 ml-1 mr-1 md:ml-0 md:mr-2 rounded-full md:bg-border flex items-center justify-center group-hover:opacity-75"

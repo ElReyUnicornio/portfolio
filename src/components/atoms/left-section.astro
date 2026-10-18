@@ -2,10 +2,13 @@
 import SectionLeft from "./section-left.astro";
 import CategoryIcon from "./categoryIcon";
 import CarouselController from "./carouselController";
+
+const lang = Astro.currentLocale || 'es';
 ---
 
 <div
-  class="hidden absolute top-0 left-0 h-full aspect-[841/867] z-20 md:flex flex-col pt-48 pl-20"
+  class="hidden absolute top-0 left-0 h-full aspect-[841/867] z-20 md:flex flex-col pt-48 pl-20 overflow-hidden"
+  data-lang={lang}
 >
   <div class="absolute w-full h-full top-0 left-0 z-0">
     <SectionLeft />
@@ -50,6 +53,9 @@ import CarouselController from "./carouselController";
 <script>
   import { filteredProjects, projectsIndex } from "../../store";
 
+  const container = document.querySelector('[data-lang]');
+  const lang = container?.getAttribute('data-lang') || 'es';
+
   const categoryIcon = document.getElementById("category-icon");
   const category = document.getElementById("project-category");
   const title = document.getElementById("project-title");
@@ -66,7 +72,7 @@ import CarouselController from "./carouselController";
     category.style.backgroundImage = `linear-gradient(${project.startColor}, ${project.endColor})`;
     category.textContent = project.category.toUpperCase();
     title.textContent = project.name;
-    description.textContent = project.description;
+    description.textContent = project.description[lang as 'es' | 'en'] || project.description.es || project.description;
   }
 
   function refreshAnimation(element: HTMLElement) {

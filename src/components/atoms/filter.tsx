@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { categories, technologies, languages } from "../../constants";
 import { filter } from "../../store";
+import { useTranslations } from "../../i18n/utils";
 
 interface FilterProps {
   section: "projects" | "jobs";
+  lang?: string;
 }
 
-export default function Filter(props: FilterProps) {
+export default function Filter({ section, lang = "es" }: FilterProps) {
   const [open, setOpen] = useState(false);
+  const t = useTranslations(lang as any);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ export default function Filter(props: FilterProps) {
       technologies: data.getAll("technologies") as string[],
       languages: data.get("language") as string,
     };
-    filter(props.section, obj);
+    filter(section, obj);
   };
   return (
     <div>
@@ -51,7 +54,7 @@ export default function Filter(props: FilterProps) {
             onSubmit={handleSubmit}
           >
             <div className="flex justify-between w-full mb-8">
-              <h2 className="font-bold">Filter</h2>
+              <h2 className="font-bold">{t("filter.title")}</h2>
               <button onClick={() => setOpen(false)}>
                 <svg
                   className="w-6 h-6 text-white/75"
@@ -74,52 +77,52 @@ export default function Filter(props: FilterProps) {
             </div>
             <div className="w-full mb-4 flex justify-between items-center gap-20">
               <label htmlFor="category" className="font-medium">
-                Categoría
+                {t("filter.category")}
               </label>
               <select
                 name="category"
                 id="category"
                 className="w-full rounded-md border-border border-2 p-1 bg-bg"
               >
-                <option value="">All</option>
+                <option value="">{t("filter.all")}</option>
                 {categories.map((cat) => (
-                  <option key={cat + "_" + props.section} value={cat}>
+                  <option key={cat + "_" + section} value={cat}>
                     {cat}
                   </option>
                 ))}
               </select>
             </div>
-            <p className="font-medium w-full mb-2">Tecnologías</p>
+            <p className="font-medium w-full mb-2">{t("filter.technologies")}</p>
             <div className="flex flex-wrap gap-4 md:gap-8 mb-4">
               {technologies.map((tech) => (
                 <div
                   className="flex items-center"
-                  key={tech + "_" + props.section}
+                  key={tech + "_" + section}
                 >
                   <input
                     type="checkbox"
                     name="technologies"
-                    id={tech + "_" + props.section}
+                    id={tech + "_" + section}
                     value={tech}
                     className="mr-1 bg-bg accent-gradient-vex-green w-4 h-4"
                   />
-                  <label htmlFor={tech + "_" + props.section}>{tech}</label>
+                  <label htmlFor={tech + "_" + section}>{tech}</label>
                 </div>
               ))}
             </div>
             <div className="w-full mb-2 flex justify-between items-center gap-20">
               <label htmlFor="language" className="font-medium">
-                Lenguaje
+                {t("filter.language")}
               </label>
               <select
                 name="language"
                 id="language"
                 className="w-full rounded-md border-border border-2 p-1 bg-bg"
               >
-                <option value="">All</option>
-                {languages.map((lang) => (
-                  <option key={lang + "_" + props.section} value={lang}>
-                    {lang}
+                <option value="">{t("filter.all")}</option>
+                {languages.map((l) => (
+                  <option key={l + "_" + section} value={l}>
+                    {l}
                   </option>
                 ))}
               </select>
@@ -128,7 +131,7 @@ export default function Filter(props: FilterProps) {
               className="bg-white text-black p-2 rounded-md w-full mt-8 mb-1 font-bold"
               type="submit"
             >
-              Filtrar
+              {t("filter.button")}
             </button>
           </form>
         </div>

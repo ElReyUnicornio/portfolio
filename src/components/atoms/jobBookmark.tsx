@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import { jobsIndex, filteredJobs } from "../../store";
 import { useEffect, useState } from "react";
 
-export default function JobBookmark() {
+export default function JobBookmark({ lang = "es" }: { lang?: string }) {
   const index = useStore(jobsIndex);
   const [animation, setAnimation] = useState(["animate-slide-down"]);
 

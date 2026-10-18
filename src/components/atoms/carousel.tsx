@@ -12,7 +12,7 @@ import {
 import { useEffect, useRef } from "react";
 import type { Job } from "../../jobs";
 
-export default function Carousel({ section }: { section: string }) {
+export default function Carousel({ section, lang = "es" }: { section: string, lang?: string }) {
   const items = useStore(
     section === "projects" ? filteredProjects : filteredJobs
   );

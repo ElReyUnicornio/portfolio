@@ -1,3 +1,8 @@
+---
+import { useTranslations } from "../../i18n/utils";
+const lang = Astro.currentLocale || 'es';
+const t = useTranslations(lang as any);
+---
 <nav class="hidden md:block fixed right-10 top-[calc(50%-4.5rem)] -translate-y-1/2 z-50 w-3">
   <ul class="flex flex-col gap-8">
     <!-- Section -->
@@ -9,7 +14,7 @@
       >
         <span
           class="text-xl text-nowrap text-gradient-vex-green font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
-          >Inicio</span
+          >{t("nav.home")}</span
         >
       </div>
     </a>
@@ -21,7 +26,7 @@
       >
         <span
           class="text-xl text-nowrap text-blue-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
-          >Proyectos</span
+          >{t("nav.projects")}</span
         >
       </div>
     </a>
@@ -33,7 +38,7 @@
       >
         <span
           class="text-xl text-nowrap text-pink-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
-          >Experiencia</span
+          >{t("nav.jobs")}</span
         >
       </div>
     </a>
@@ -45,7 +50,7 @@
       >
         <span
           class="text-xl text-nowrap text-purple-500 font-extrabold translate-x-full group-hover:translate-x-0 transition-transform"
-          >Sobre mí</span
+          >{t("nav.hobbies")}</span
         >
       </div>
     </a>
@@ -121,37 +126,6 @@
     }
   };
 
-  document.addEventListener("scroll", updateNav);
-
-  navHome?.addEventListener(
-    "mouseover",
-    () =>
-      ((navHome.firstElementChild as HTMLElement).style.backgroundColor =
-        homeColor)
-  );
-  navHome?.addEventListener("mouseleave", updateNav);
-
-  navProjects?.addEventListener(
-    "mouseover",
-    () =>
-      ((navProjects.firstElementChild as HTMLElement).style.backgroundColor =
-        projectsColor)
-  );
-  navProjects?.addEventListener("mouseleave", updateNav);
-
-  navJobs?.addEventListener(
-    "mouseover",
-    () =>
-      ((navJobs.firstElementChild as HTMLElement).style.backgroundColor =
-        jobsColor)
-  );
-  navJobs?.addEventListener("mouseleave", updateNav);
-
-  navHobbies?.addEventListener(
-    "mouseover",
-    () =>
-      ((navHobbies.firstElementChild as HTMLElement).style.backgroundColor =
-        hobbiesColor)
-  );
-  navHobbies?.addEventListener("mouseleave", updateNav);
+  window.addEventListener("scroll", updateNav);
+  window.addEventListener("load", updateNav);
 </script>

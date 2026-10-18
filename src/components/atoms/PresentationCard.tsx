@@ -11,7 +11,10 @@ import cardBG from "../../assets/card-bg.svg";
 import CrownBookmark from "../atoms-card/crownBookmark";
 import ContactMail from "./contactMail";
 
-export default function PresentationCard() {
+import { useTranslations } from "../../i18n/utils";
+
+export default function PresentationCard({ lang = "es" }: { lang?: string }) {
+  const t = useTranslations(lang as any);
   const cardRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
@@ -115,8 +118,8 @@ export default function PresentationCard() {
           {/* Avatar && XpBar ------------------------------------------------------------------------------ */}
 
           <div className="flex flex-row justify-between w-full relative z-10">
-            <Avatar url={pp.src} name="Alejandro Soto" title="Fullstack Dev." />
-            <CrownBookmark />
+            <Avatar url={pp.src} name={t("hero.title")} title={t("hero.subtitle")} />
+            <CrownBookmark lang={lang} />
           </div>
 
           {/* Tecnologies && sections ------------------------------------------------------------------------------ */}
@@ -151,7 +154,7 @@ export default function PresentationCard() {
           <div className="relative flex justify-between w-full items-end z-10">
             <div>
               <h1 className="font-semibold md:font-bold text-xs md:text-base text-white">
-                contacto:
+                {t("hero.contact")}
               </h1>
               <ContactMail />
             </div>

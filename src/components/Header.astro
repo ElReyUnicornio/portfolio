@@ -1,9 +1,16 @@
+---
+const lang = Astro.currentLocale || 'es';
+---
 <header
   class="absolute z-50 top-0 w-full h-16 bg-section-bg px-[7%] flex justify-between items-center shadow-md md:h-24"
 >
-  <a href="#home" class="text-white font-extrabold text-xl md:text-4xl">
+  <a href={lang === 'es' ? "#home" : "/en#home"} class="text-white font-extrabold text-xl md:text-4xl">
     AlejandroSoto<span class="text-gradient-vex-green">.</span>site
   </a>
+  <div class="flex gap-4">
+    <a href="/" class={`text-white font-bold ${lang === 'es' ? 'underline decoration-gradient-vex-green' : 'opacity-50'}`}>ES</a>
+    <a href="/en" class={`text-white font-bold ${lang === 'en' ? 'underline decoration-gradient-vex-green' : 'opacity-50'}`}>EN</a>
+  </div>
   <div
     class="absolute bottom-0 w-full left-1/2 -translate-x-1/2 h-1 bg-gradient-to-r from-gradient-vex-green to-gradient-vex-purple"
   >

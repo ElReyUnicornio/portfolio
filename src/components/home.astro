@@ -1,6 +1,9 @@
 ---
 import Background from "./atoms/background.astro";
 import PresentationCard from "./atoms/PresentationCard";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || 'es';
 ---
 
 <section
@@ -8,5 +11,5 @@ import PresentationCard from "./atoms/PresentationCard";
   class="relative z-0 w-full h-dvh flex justify-center items-center snap-center pb-36"
 >
   <Background />
-  <PresentationCard client:visible />
+  <PresentationCard client:visible lang={lang} />
 </section>

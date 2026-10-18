@@ -5,6 +5,10 @@ import Carousel from "./atoms/carousel";
 import Filter from "./atoms/filter";
 import TopSection from "./atoms/top-section.astro";
 import BottomSection from "./atoms/bottom-section.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = Astro.currentLocale || 'es';
+const t = useTranslations(lang as any);
 ---
 
 <section
@@ -14,12 +18,12 @@ import BottomSection from "./atoms/bottom-section.astro";
   <div class="flex flex-col md:flex-row-reverse grow md:h-container w-full relative z-0">
     <TopSection />
     <div class="h-full w-full md:w-[calc(100vw-((100vh-9rem)*0.63))] relative">
-      <Carousel section="projects" client:visible />
+      <Carousel lang={lang} section="projects" client:visible />
       <div class="absolute top-0 left-0 w-full h-full z-10 bg-black/30"></div>
     </div>
     <BottomSection />
     <LeftSection />
   </div>
-  <Banner title="Proyectos" section="projects" />
-  <Filter section="projects" client:visible />
+  <Banner title={t("projects.title")} section="projects" lang={lang} />
+  <Filter section="projects" client:visible lang={lang} />
 </section>

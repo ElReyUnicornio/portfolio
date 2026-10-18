@@ -1,10 +1,13 @@
 ---
 import CategoryIcon from "./categoryIcon";
 import CarouselController from "./carouselController";
+
+const lang = Astro.currentLocale || 'es';
 ---
 
 <div
   class="flex h-28 z-20 md:hidden flex-col"
+  data-lang={lang}
 >
   <div class="flex bg-[#18131C] flex-col justify-center relative z-10 px-[7%] pt-2">
     <div class="flex flex-row items-center overflow-hidden mb-1">
@@ -39,6 +42,9 @@ import CarouselController from "./carouselController";
 
 <script>
   import { filteredProjects, projectsIndex } from "../../store";
+
+  const container = document.querySelector('[data-lang]');
+  const lang = container?.getAttribute('data-lang') || 'es';
 
   const categoryIcon = document.getElementById("m-category-icon");
   const category = document.getElementById("m-project-category");

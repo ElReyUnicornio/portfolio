@@ -5,9 +5,11 @@ import Projects from "../components/projects.astro";
 import Jobs from "../components/jobs.astro";
 import Hobbies from "../components/hobbies.astro";
 import Nav from "../components/atoms/nav.astro";
+
+const lang = "es";
 ---
 
-<Layout title="Alejandro Soto">
+<Layout title="Alejandro Soto" lang={lang}>
   <Nav />
   <Home />
   <Projects />

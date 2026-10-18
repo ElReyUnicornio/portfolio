@@ -10,7 +10,10 @@ import gmsLogo from "./assets/gms-logo.svg";
 
 export interface Job {
   name: string;
-  description: string;
+  description: {
+    es: string;
+    en: string;
+  };
   category: string;
   technologies: string;
   languages: string;
@@ -25,8 +28,10 @@ export interface Job {
 export const jobs: Job[] = [
   {
     name: "Eufonia Studio",
-    description:
-      "Estudio de desarrollo de videojuegos enfocado en Minecraft. Colaboré hasta ahora en tres proyectos como desarrollador de mods en Java.",
+    description: {
+      es: "Estudio de desarrollo de videojuegos enfocado en Minecraft. Colaboré hasta ahora en tres proyectos como desarrollador de mods en Java.",
+      en: "Video game development studio focused on Minecraft. I have collaborated so far on three projects as a Java mod developer."
+    },
     category: "web",
     technologies: "java gradle fabric",
     languages: "java",
@@ -39,8 +44,10 @@ export const jobs: Job[] = [
   },
   {
     name: "GM Store",
-    description:
-      "Consultora dónde desarrollé aplicaciones web fullstack, aplicaciones móviles con react native y le dí mantenimiento a algunas de las aplicaciones ya existentes",
+    description: {
+      es: "Consultora dónde desarrollé aplicaciones web fullstack, aplicaciones móviles con react native y le dí mantenimiento a algunas de las aplicaciones ya existentes",
+      en: "Consultancy where I developed fullstack web applications, mobile applications with react native and maintained some of the existing applications."
+    },
     category: "web",
     technologies: "react angular laravel mySql",
     languages: "js php",

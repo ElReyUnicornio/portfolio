@@ -1,11 +1,13 @@
 ---
 import JobBookmark from "./jobBookmark";
+const lang = Astro.currentLocale || 'es';
 ---
 
 <div
       class="w-full h-full relative z-20 flex flex-col gap-2 md:gap-4 justify-start items-start"
+      data-lang={lang}
     >
-      <JobBookmark client:visible />
+      <JobBookmark client:visible lang={lang} />
       <div class="overflow-hidden mb-4 w-full md:mt-16 mt-4">
         <h2
           id="job-title"
@@ -26,6 +28,10 @@ import JobBookmark from "./jobBookmark";
 
     <script>
         import { filteredJobs, jobsIndex } from "../../store";
+
+        const container = document.querySelector('[data-lang]');
+        const lang = container?.getAttribute('data-lang') || 'es';
+
         const title = document.getElementById("job-title");
         const description = document.getElementById("job-description");
       
@@ -34,7 +40,7 @@ import JobBookmark from "./jobBookmark";
           refreshAnimation(title);
           refreshAnimation(description);
           title.textContent = job.name.toUpperCase();
-          description.textContent = job.description;
+          description.textContent = job.description[lang as 'es' | 'en'] || job.description.es || job.description;
         }
       
         function refreshAnimation(element: HTMLElement) {

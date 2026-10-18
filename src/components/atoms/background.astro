@@ -1,6 +1,13 @@
 ---
 import bottom from "../../assets/section-bottom.svg";
 import Chevron from "../icons/chevron";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = Astro.currentLocale || 'es';
+const t = useTranslations(lang as any);
+
+const phrase = t("hero.phrase");
+const imagination = t("hero.imagination");
 ---
 
 <div
@@ -16,9 +23,9 @@ import Chevron from "../icons/chevron";
   >
     <img src={bottom.src} class="object-cover absolute h-32 bottom-0 z-0 lg:object-contain lg:w-full lg:h-auto" />
     <p class="md:text-3xl text-xl text-white relative z-10 font-extrabold">
-      El límite lo pone tu <span
+      {phrase}<span
         class="bg-gradient-to-b from-[#B52BF4] to-[#12A38B] bg-clip-text text-transparent"
-        >imaginación</span
+        >{imagination}</span
       >
     </p>
     <a href="#Proyectos" class="py-0 lg:py-5">
