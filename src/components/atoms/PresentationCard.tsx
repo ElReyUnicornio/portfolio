@@ -99,13 +99,13 @@ export default function PresentationCard() {
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="w-11/12 h-[40%] md:max-w-4xl lg:h-[500px] perspective relative z-20"
+      className="w-11/12 h-[40%] md:max-w-4xl md:h-[380px] lg:h-[500px] perspective relative md:top-5 md:scale-90 z-20"
     >
       <div
         ref={cardRef}
-        className="w-full h-full rounded-3xl p-3 lg:rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm lg:max-w-4xl lg:h-[500px] lg:p-5 transition-transform overflow-hidden"
+        className="w-full h-full rounded-3xl p-3 lg:rounded-[50px] shadow-inner-card bg-transparent backdrop-blur-sm md:max-w-2xl md:h-[380px] lg:max-w-4xl lg:h-[500px] lg:p-5 transition-transform overflow-hidden"
       >
-        <div className="relative p-4 flex flex-col justify-center items-center border-[1px] lg:border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-2xl lg:rounded-[35px] md:p-8 shadow shadow-gray-900">
+        <div className="relative p-4 flex flex-col justify-center items-center border-[1px] lg:border-[2px] border-[#A9A9A9] bg-card-bg w-full h-full rounded-2xl lg:rounded-[35px] md:p-6 shadow shadow-gray-900">
           {/* CardBG ------------------------------------------------------------------------------ */}
           <img
             src={cardBG.src}
@@ -123,21 +123,21 @@ export default function PresentationCard() {
 
           <div className="w-full flex justify-between items-center grow relative z-10">
             <img
-              className="relative h-12 md:h-28 left-4 md:top-4 lg:left-2 lg:-top-0"
+              className="relative h-12 md:h-20 left-4 md:top-4 lg:left-2 lg:-top-0 lg:h-28"
               src={tecnologies.src}
               alt="react, tailwind, nest, typeScript"
             />
-            <div className="absolute top-1/2 left-2 -translate-y-1/2 flex gap-[6px] md:gap-[16px] h-12 md:h-28 ml-2 md:ml-0">
-              <div className="w-12 md:w-28 h-full group relative">
+            <div className="absolute top-1/2 left-2 -translate-y-1/2 flex gap-[6px] md:gap-[12px] lg:gap-[16px] h-12 md:h-20 lg:h-28 ml-2 md:ml-0">
+              <div className="w-12 md:w-20 lg:w-28 h-full group relative">
                 <Tooltip>React</Tooltip>
               </div>
-              <div className="w-12 md:w-28 h-full group relative">
+              <div className="w-12 md:w-20 lg:w-28 h-full group relative">
                 <Tooltip>Tailwind</Tooltip>
               </div>
-              <div className="w-12 md:w-28 h-full group relative">
+              <div className="w-12 md:w-20 lg:w-28 h-full group relative">
                 <Tooltip>Nest.JS</Tooltip>
               </div>
-              <div className="w-12 md:w-28 h-full group relative">
+              <div className="w-12 md:w-20 lg:w-28 h-full group relative">
                 <Tooltip>TypeScript</Tooltip>
               </div>
             </div>
